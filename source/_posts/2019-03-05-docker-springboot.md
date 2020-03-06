@@ -1,0 +1,65 @@
+---
+title: docker+springboot
+date: 2019-03-05 21:26:10
+tags:
+categories:
+- docker
+---
+# what
+
+在 `pom.xml-properties `中添加 Docker 镜像名称
+
+```
+<properties>
+	<docker.image.prefix>springboot</docker.image.prefix>
+</properties>
+```
+
+plugins 中添加 Docker 构建插件：
+
+```
+<build>
+	<plugins>
+		<plugin>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-maven-plugin</artifactId>
+		</plugin>
+		<!-- Docker maven plugin -->
+		<plugin>
+			<groupId>com.spotify</groupId>
+			<artifactId>docker-maven-plugin</artifactId>
+			<version>1.0.0</version>
+			<configuration>
+				<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+				<dockerDirectory>src/main/docker</dockerDirectory>
+				<resources>
+					<resource>
+						<targetPath>/</targetPath>
+						<directory>${project.build.directory}</directory>
+						<include>${project.build.finalName}.jar</include>
+					</resource>
+				</resources>
+			</configuration>
+		</plugin>
+		<!-- Docker maven plugin -->
+	</plugins>
+</build>
+```
+
+在目录`src/main/docker`下创建 Dockerfile 文件，Dockerfile 文件用来说明如何来构建镜像。
+
+```
+FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+ADD spring-boot-docker-1.0.jar app.jar
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+```
+
+这个 Dockerfile 文件很简单，构建 Jdk 基础环境，添加 Spring Boot Jar 到镜像中，简单解释一下:
+
+- FROM ，表示使用 Jdk8 环境 为基础镜像，如果镜像不是本地的会从 DockerHub 进行下载
+- VOLUME ，VOLUME 指向了一个`/tmp`的目录，由于 Spring Boot 使用内置的Tomcat容器，Tomcat 默认使用`/tmp`作为工作目录。这个命令的效果是：在宿主机的`/var/lib/docker`目录下创建一个临时文件并把它链接到容器中的`/tmp`目录
+- ADD ，拷贝文件并且重命名
+- ENTRYPOINT ，为了缩短 Tomcat 的启动时间，添加`java.security.egd`的系统属性指向`/dev/urandom`作为 ENTRYPOINT
+
+> 这样 Spring Boot 项目添加 Docker 依赖就完成了。

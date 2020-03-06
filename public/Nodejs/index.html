@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="RSCvMVxEve">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+<script data-ad-client="ca-pub-4879202392959238" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <meta name="description" content="what Node.js® is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js’ package ecosystem,">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Node.js">
+<meta property="og:url" content="http://zehai.info/Nodejs/index.html">
+<meta property="og:site_name" content="Zehai&#39;blog">
+<meta property="og:description" content="what Node.js® is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js’ package ecosystem,">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://zehai.info/img/Node原理.png">
+<meta property="og:image" content="http://zehai.info/img/phaseOfEventloop.png">
+<meta property="og:updated_time" content="2020-01-31T02:16:29.954Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node.js">
+<meta name="twitter:description" content="what Node.js® is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js’ package ecosystem,">
+<meta name="twitter:image" content="http://zehai.info/img/Node原理.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Zehai'blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://zehai.info/Nodejs/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Node.js | Zehai'blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zehai'blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+
+    
+
+    <a href="/" rel="section">Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-knowledgetree">
+
+    
+    
+    
+
+    
+
+    <a href="/KnowledgeTree/" rel="section">KnowledgeTree</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+
+    
+
+    <a href="/archives/" rel="section">Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-csdn">
+
+    
+    
+    
+
+    
+
+    <a href="https://blog.csdn.net/ShancoFolia" rel="noopener" target="_blank">CSDN</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-docker">
+
+    
+    
+    
+
+    
+
+    <a href="/Docker/" rel="section">Docker</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-redis">
+
+    
+    
+    
+
+    
+
+    <a href="/Redis/" rel="section">Redis</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-springboot">
+
+    
+    
+    
+
+    
+
+    <a href="/SpringBoot/" rel="section">SpringBoot</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-cnetwork">
+
+    
+    
+    
+
+    
+
+    <a href="/cnetwork" rel="section">CNetwork</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-structure">
+
+    
+    
+    
+
+    
+
+    <a href="/Structure" rel="section">Structure</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-nodejs menu-item-active">
+
+    
+    
+    
+
+    
+
+    <a href="/Nodejs" rel="section">NodeJS</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-interview">
+
+    
+    
+    
+
+    
+
+    <a href="/Interview" rel="section">Interview</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+
+    
+
+    <a href="/tags/" rel="section">Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+
+    
+
+    <a href="/categories/" rel="section">Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+
+    
+
+    <a href="/about/" rel="section">About</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+<h2 class="post-title" itemprop="name headline">Node.js
+
+</h2>
+
+<div class="post-meta">
+  
+  
+
+
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <h1 id="what"><a href="#what" class="headerlink" title="what"></a>what</h1><blockquote>
+<p>Node.js® is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js’ package ecosystem, npm, is the largest ecosystem of open source libraries in the world.</p>
+</blockquote>
+<ul>
+<li>Node是JavaScript运行环境</li>
+<li>事件驱动，非阻塞IO模型</li>
+<li>使用npm管理包</li>
+</ul>
+<h1 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h1><p><img src="..\img\Node原理.png" alt=""></p>
+<ul>
+<li>Chrome V8 是 Google 发布的开源 JavaScript 引擎，采用 C/C++ 编写，在 Google 的 Chrome 浏览器中被使用。Chrome V8 引擎可以独立运行，也可以用来嵌入到 C/C++ 应用程序中执行。</li>
+<li>Event Loop 事件循环（由 libuv 提供）</li>
+<li>Thread Pool 线程池（由 libuv 提供）</li>
+</ul>
+<p>带来的好处</p>
+<ul>
+<li>用户体验</li>
+<li>资源分配</li>
+</ul>
+<h1 id="Blocking-与Non-blocking"><a href="#Blocking-与Non-blocking" class="headerlink" title="Blocking 与Non-blocking"></a>Blocking 与Non-blocking</h1><p>大量诸如IO，锁操作会造成堵塞，node标准库中所有IO都提供了非阻塞的一步版本，接受回调函数</p>
+<ul>
+<li>回调函数可以放入底层线程池操作，不阻塞主线程</li>
+<li>可以自定义回调函数，处理返回结果</li>
+</ul>
+<p>我们可以直接比较一下阻塞和非阻塞的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//blocking 且如果错误需要catch否则程序会**崩溃**</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> data = fs.readFileSync(<span class="string">'/file.md'</span>); <span class="comment">// blocks here until file is read</span></span><br><span class="line"><span class="comment">//non-blocking</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.readFile(<span class="string">'/file.md'</span>, (err, data) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//执行第6行后，放进队列，开始执行下面的业务数据</span></span><br></pre></td></tr></table></figure>
+<h2 id="并发和吞吐量"><a href="#并发和吞吐量" class="headerlink" title="并发和吞吐量"></a>并发和吞吐量</h2><p>Node起服务大概会启动一个进程，包含7个线程，</p>
+<p>1 个 Javascript 执行主线程；1 个 watchdog 监控线程用于处理调试信息；1 个 v8 task scheduler 线程用于调度任务优先级，加速延迟敏感任务执行；4 个 v8 线程（可参考以下代码），主要用来执行代码调优与 GC 等后台任务；以及用于异步 I / O 的 libuv 线程池。</p>
+<p>并发指的是执行完其他工作后，事件循环执行回调的能力，高并发原理：如一个请求50ms请求，其中45ms都在数据库，那么我可以5ms处理完，推入队列，其余时间继续响应其他请求。</p>
+<p>eventloop是JS的特性，在其他语言中，会创建线程来处理并发工作（比如同时两个请求，创建两个线程来处理，但是他们之间可能访问数据会加锁，如果有100个请求，访问同一个数据，加个锁，99个请求都只能等着了）</p>
+<h2 id="混合阻塞代码和非阻塞代码"><a href="#混合阻塞代码和非阻塞代码" class="headerlink" title="混合阻塞代码和非阻塞代码"></a>混合阻塞代码和非阻塞代码</h2><p>处理io应该避免如下写法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.readFile(<span class="string">'/file.md'</span>, (err, data) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;);</span><br><span class="line">fs.unlinkSync(<span class="string">'/file.md'</span>);<span class="comment">//unlink first</span></span><br><span class="line"><span class="comment">//应该将unlink写入回调函数</span></span><br></pre></td></tr></table></figure>
+<h1 id="EventLoop"><a href="#EventLoop" class="headerlink" title="EventLoop"></a>EventLoop</h1><h2 id="what-1"><a href="#what-1" class="headerlink" title="what"></a>what</h2><p>eventloop（事件循环）给予node非阻塞IO的优势，尽管JS是单线程</p>
+<p>由于大多数内核支持多线程，他们可以再后台执行多个任务，当某个任务完成的时候，内核会告诉node，以便将callback添加到poll队列来执行</p>
+<h2 id="Explained"><a href="#Explained" class="headerlink" title="Explained"></a>Explained</h2><p>当node启东时，他会初始化eventloop，处理输入的script(或者放入REPL)，这些script可以执行异步API调用，定时器，或者调用process.nextTick(),然后开始处理事件循环<img src="..\img\phaseOfEventloop.png" alt=""></p>
+<p>其中每个矩形被称作phase（个人理解：阶段）</p>
+<p>每一个phase都有一个有callbacks等待执行的FIFO的队列，尽管每个phase都有自己特殊的地方，但是通常，当eventloop执行到某一个phase时候，他将执行该阶段特定的操作，然后调用queue里面的callback function直到<strong>队列为空</strong>或者达到该phase<strong>最大的回调执行数量</strong>。</p>
+<ul>
+<li>timers：<code>setTimeout()</code> and <code>setInterval()</code></li>
+<li><strong>pending callbacks</strong>: 执行推迟到下一个tick的IO回调</li>
+<li><strong>idle, prepare</strong>: 内部使用</li>
+<li><strong>poll</strong>: 接收新的IO event，执行与IO相关的回调（关闭回调，计时器回调，setImmediate）(该phase可能会block)</li>
+<li><strong>check</strong>: <code>setImmediate()</code> </li>
+<li><strong>close callbacks</strong>: 关闭回调, 如 <code>socket.on(&#39;close&#39;, ...)</code>.</li>
+</ul>
+<p>由于执行某一个phase都可能新增更多的操作任务，一些新的event也会进入poll 队列中排队，因此可在处理轮询事件时候将poll event排队，使得长时间运行的回调也可以使轮询阶段运行的时间比计时器的阈值长很多。</p>
+<h2 id="待更新"><a href="#待更新" class="headerlink" title="待更新"></a>待更新</h2><h1 id="计时器"><a href="#计时器" class="headerlink" title="计时器"></a>计时器</h1><p>目的：设定时间段后执行函数，直接使用无需require</p>
+<h2 id="使用nodejs控制时间连续性"><a href="#使用nodejs控制时间连续性" class="headerlink" title="使用nodejs控制时间连续性"></a>使用nodejs控制时间连续性</h2><h3 id="settimeout"><a href="#settimeout" class="headerlink" title="settimeout"></a>settimeout</h3><h1 id="异步编程"><a href="#异步编程" class="headerlink" title="异步编程"></a>异步编程</h1><h1 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a><a href="https://nodejs.org/dist/latest-v10.x/docs/api/buffer.html" target="_blank" rel="noopener">Buffer</a></h1><blockquote>
+<p>The <code>Buffer</code> class was introduced as part of the Node.js API to enable interaction with octet streams in TCP streams, file system operations, and other contexts.</p>
+</blockquote>
+<p>原因：应用需要</p>
+<ul>
+<li>处理网络协议</li>
+<li>操作数据库</li>
+<li>处理图片</li>
+<li>接受上传文件等</li>
+</ul>
+<p>处理大量二进制数据，JavaScript自由的字符串不能满足这些要求</p>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>与C++结合：node_buffer–&gt;Buffer/SlowBuffer</p>
+<p>也就是JavaScript的Buffer或者SlowBuffer依赖于C++的内建模块，buffer内存不归v8管理，是堆外内存</p>
+<h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str=<span class="string">"helloworld"</span></span><br><span class="line"><span class="keyword">const</span> buf=<span class="keyword">new</span> Buffer(str,<span class="string">'utf-8'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(buf)</span><br><span class="line"><span class="comment">//=&gt;&lt;Buffer xx xx xx&gt;16进制数字</span></span><br><span class="line">buf[<span class="number">22</span>]=<span class="number">10</span></span><br><span class="line"><span class="comment">//只能赋值0-255的数值，否则会取余256</span></span><br></pre></td></tr></table></figure>
+<h2 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h2><p>Node的C++层面实现内存申请，在JavaScript中分配内存的策略，Node采用slab的动态内存管理机制，slab的3种状态</p>
+<ul>
+<li>full：完全分配</li>
+<li>partial：部分分配</li>
+<li>empty：没有分配</li>
+</ul>
+<p>Buffer.poolSize=8*1024，即以8kb为大小Buffer的分界，小于8Kb拼单，大于8kb分配大的slab被大buffer独占</p>
+<h2 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h2><p>可以转换的类型</p>
+<ul>
+<li>asc2</li>
+<li>utf-8</li>
+<li>utf-16LE/UCS-2</li>
+<li>Base64</li>
+<li>Binary</li>
+<li>Hex</li>
+</ul>
+<p>采用new Buffer(str,[encoding]),<strong>默认utf-8</strong></p>
+<p>buf.write(string,[offset],[length],[encoding])默认utf-8</p>
+<p>buf.toString([encoding],[start],[end])默认utf-8</p>
+<h2 id="拼接"><a href="#拼接" class="headerlink" title="拼接"></a>拼接</h2><h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p>性能大概是字符串的一倍</p>
+<h1 id="EventLoop-1"><a href="#EventLoop-1" class="headerlink" title="EventLoop"></a>EventLoop</h1><h1 id="libuv"><a href="#libuv" class="headerlink" title="libuv"></a>libuv</h1><p><a href="https://nikhilm.github.io/uvbook/introduction.html" target="_blank" rel="noopener">介绍page</a></p>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+
+
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4" alt="Zhang Zehai">
+            
+              <p class="site-author-name" itemprop="name">Zhang Zehai</p>
+              <div class="site-description motion-element" itemprop="description">会做饭的厨子</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">71</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/ShawnGoethe" title="GitHub &rarr; https://github.com/ShawnGoethe" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="/zehaizhang@aliyun.com" title="E-Mail &rarr; zehaizhang@aliyun.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#what"><span class="nav-number">1.</span> <span class="nav-text">what</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本原理"><span class="nav-number">2.</span> <span class="nav-text">基本原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Blocking-与Non-blocking"><span class="nav-number">3.</span> <span class="nav-text">Blocking 与Non-blocking</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#并发和吞吐量"><span class="nav-number">3.1.</span> <span class="nav-text">并发和吞吐量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#混合阻塞代码和非阻塞代码"><span class="nav-number">3.2.</span> <span class="nav-text">混合阻塞代码和非阻塞代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#EventLoop"><span class="nav-number">4.</span> <span class="nav-text">EventLoop</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#what-1"><span class="nav-number">4.1.</span> <span class="nav-text">what</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Explained"><span class="nav-number">4.2.</span> <span class="nav-text">Explained</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#待更新"><span class="nav-number">4.3.</span> <span class="nav-text">待更新</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#计时器"><span class="nav-number">5.</span> <span class="nav-text">计时器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用nodejs控制时间连续性"><span class="nav-number">5.1.</span> <span class="nav-text">使用nodejs控制时间连续性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#settimeout"><span class="nav-number">5.1.1.</span> <span class="nav-text">settimeout</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异步编程"><span class="nav-number">6.</span> <span class="nav-text">异步编程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Buffer"><span class="nav-number">7.</span> <span class="nav-text">Buffer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#结构"><span class="nav-number">7.1.</span> <span class="nav-text">结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#声明"><span class="nav-number">7.2.</span> <span class="nav-text">声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存分配"><span class="nav-number">7.3.</span> <span class="nav-text">内存分配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转换"><span class="nav-number">7.4.</span> <span class="nav-text">转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拼接"><span class="nav-number">7.5.</span> <span class="nav-text">拼接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能"><span class="nav-number">7.6.</span> <span class="nav-text">性能</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#EventLoop-1"><span class="nav-number">8.</span> <span class="nav-text">EventLoop</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#libuv"><span class="nav-number">9.</span> <span class="nav-text">libuv</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhang Zehai</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=7.0.1"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
