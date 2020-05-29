@@ -1,5 +1,5 @@
 ---
-title: 2020-03-06-BinaryTreeInorderTraversal
+title: BinaryTreeInorderTraversal
 date: 2020-03-06 11:55:16
 tags:
 - Medium

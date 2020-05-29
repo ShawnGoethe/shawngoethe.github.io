@@ -9,13 +9,13 @@
 
 - [计算机网络](http://zehai.info/cnetwork/)
 - 计算机操作系统
-- 数据结构
+- [数据结构](http://zehai.info/structure/)
 
 ## Node.js
 
-- feature
+- [feature](<http://zehai.info/Nodejs/#what>)
 - 异步IO
-- 异步编程
+- [异步编程](<http://zehai.info/Nodejs/#%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B>)
 - 内存控制
 - [理解buffer](http://zehai.info/Nodejs/)
 - 网络编程
@@ -23,7 +23,7 @@
 - 多进程
 - 测试即调试
 
-- eventLoop模型
+- [eventLoop模型](<http://zehai.info/Nodejs/#EventLoop>)
 
 ## Java基础
 
@@ -41,13 +41,13 @@
 ## Data Structure
 
 - String
-- Linked List
+- [Linked List](<http://zehai.info/Structure/#LinkedList>)
 - Binary Tree
 - Huffman Compression
-- Queue
+- [Queue](<http://zehai.info/Structure/#Queue>)
 - Heap
 - Stack
-- Set
+- [Set](<http://zehai.info/Structure/#Set>)
 - Map
 - Graph
 - Sorting
