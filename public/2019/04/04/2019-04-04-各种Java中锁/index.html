@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="Zehai&#39;blog">
 <meta property="og:description" content="悲观锁：先锁后用每次读数据都悲观认为会被其他操作修改，应用于synchroized , ReentrantLock，因为悲观所以开销大，会阻塞其他线程 乐观锁：先用后判断每次读数据乐观认为没有被其他操作修改，应用于java.util.concurrent.atomic,使用版本号和CAS算法实现 适用于多读的应用类型，提高吞吐量 公平锁：多个线程按申请所顺序取锁无 非公平锁多个线程不按申请顺序取锁">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-04T14:15:30.272Z">
+<meta property="og:updated_time" content="2020-05-30T01:33:31.556Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="各种Java中锁">
 <meta name="twitter:description" content="悲观锁：先锁后用每次读数据都悲观认为会被其他操作修改，应用于synchroized , ReentrantLock，因为悲观所以开销大，会阻塞其他线程 乐观锁：先用后判断每次读数据乐观认为没有被其他操作修改，应用于java.util.concurrent.atomic,使用版本号和CAS算法实现 适用于多读的应用类型，提高吞吐量 公平锁：多个线程按申请所顺序取锁无 非公平锁多个线程不按申请顺序取锁">
@@ -120,17 +120,17 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">86</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">94</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">25</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">29</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">26</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">28</span></a>
 
   </li>
         <li class="menu-item menu-item-mysql">
@@ -221,10 +221,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-04-04 21:54:58 / Modified: 22:15:30" itemprop="dateCreated datePublished" datetime="2019-04-04T21:54:58+08:00">2019-04-04</time>
+              <time title="Created: 2019-04-04 21:54:58" itemprop="dateCreated datePublished" datetime="2019-04-04T21:54:58+08:00">2019-04-04</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-30 09:33:31" itemprop="dateModified" datetime="2020-05-30T09:33:31+08:00">2020-05-30</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -380,20 +386,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

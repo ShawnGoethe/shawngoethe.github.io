@@ -118,17 +118,17 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">86</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">94</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">25</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">29</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">26</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">28</span></a>
 
   </li>
         <li class="menu-item menu-item-mysql">
@@ -197,6 +197,735 @@
   
   
   <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://zehai.info/2020/01/15/2020-01-15-sqrtx/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
+      <meta itemprop="name" content="Zhang Zehai">
+      <meta itemprop="description" content="会做饭的厨子">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zehai'blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/15/2020-01-15-sqrtx/" class="post-title-link" itemprop="url">2020-01-15-sqrtx</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-15 22:04:46" itemprop="dateCreated datePublished" datetime="2020-01-15T22:04:46+08:00">2020-01-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-30 09:33:31" itemprop="dateModified" datetime="2020-05-30T09:33:31+08:00">2020-05-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/01/15/2020-01-15-sqrtx/" class="post-meta-item leancloud_visitors" data-flag-title="2020-01-15-sqrtx" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/01/15/2020-01-15-sqrtx/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/15/2020-01-15-sqrtx/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="LeetCode-69"><a href="#LeetCode-69" class="headerlink" title="LeetCode-69"></a>LeetCode-69</h1><p>Implement int sqrt(int x).</p>
+<p>Compute and return the square root of x, where x is guaranteed to be a non-negative integer.</p>
+<p>Since the return type is an integer, the decimal digits are truncated and only the integer part of the result is returned.</p>
+<p>Example 1:</p>
+<p>Input: 4<br>Output: 2<br>Example 2:</p>
+<p>Input: 8<br>Output: 2<br>Explanation: The square root of 8 is 2.82842…, and since<br>             the decimal part is truncated, 2 is returned.</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>就是手写一个根号源码，首先想到的就是通过平方来做</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">mySqrt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">46340</span>;i&lt;<span class="number">46341</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(x&gt;=(<span class="keyword">long</span>)i*i&amp;&amp;x&lt;(<span class="keyword">long</span>)(i+<span class="number">1</span>)*(i+<span class="number">1</span>))&#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line">Runtime: <span class="number">22</span> ms</span><br><span class="line">Memory Usage: <span class="number">34</span> MB</span><br></pre></td></tr></table></figure>
+<p>如果不遵循题目的要求，使用Math函数，所以我们的目标大概是3ms附近</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">mySqrt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> (<span class="keyword">int</span>)Math.sqrt(Double.parseDouble(String.valueOf(x)));</span><br><span class="line">    &#125;</span><br><span class="line">Runtime: <span class="number">3</span> ms</span><br></pre></td></tr></table></figure>
+<p>解法粗暴，遇到大数的时候会从0重新开始计算，复杂度O(N)</p>
+<h2 id="第一次优化"><a href="#第一次优化" class="headerlink" title="第一次优化"></a>第一次优化</h2><p>思路就是避免做两次乘法然后去比较，这个地方可以去优化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int mySqrt(int x) &#123;</span><br><span class="line">        long n = 1;</span><br><span class="line">        while(n * n &lt;= x) &#123;</span><br><span class="line">            n++;</span><br><span class="line">        &#125;</span><br><span class="line">        return (int) n - 1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Runtime: 11 ms</span><br></pre></td></tr></table></figure>
+<h2 id="第二次优化"><a href="#第二次优化" class="headerlink" title="第二次优化"></a>第二次优化</h2><p>可以使用二分法来逐步逼近i，没有必要从1开始顺序遍历</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">mySqrt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">         <span class="keyword">if</span> (x == <span class="number">0</span> || x == <span class="number">1</span>) <span class="keyword">return</span> x;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> right = x;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> midPoint = (left + right) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (midPoint == x / midPoint) &#123;</span><br><span class="line">                <span class="keyword">return</span> midPoint;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (midPoint &gt; x / midPoint) &#123;</span><br><span class="line">                right = midPoint;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (midPoint &lt; x / midPoint) &#123;</span><br><span class="line">                left = midPoint + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> left - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Runtime: <span class="number">1</span> ms</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://zehai.info/2020/01/11/2020-01-11-SameTree/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
+      <meta itemprop="name" content="Zhang Zehai">
+      <meta itemprop="description" content="会做饭的厨子">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zehai'blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/11/2020-01-11-SameTree/" class="post-title-link" itemprop="url">2020-01-11-SameTree</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-11 15:45:18" itemprop="dateCreated datePublished" datetime="2020-01-11T15:45:18+08:00">2020-01-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-30 09:33:31" itemprop="dateModified" datetime="2020-05-30T09:33:31+08:00">2020-05-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/01/11/2020-01-11-SameTree/" class="post-meta-item leancloud_visitors" data-flag-title="2020-01-11-SameTree" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/01/11/2020-01-11-SameTree/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/11/2020-01-11-SameTree/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="LeetCode-100"><a href="#LeetCode-100" class="headerlink" title="LeetCode 100"></a>LeetCode 100</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">Given two binary trees, write a function to check if they are the same or not.</span><br><span class="line"></span><br><span class="line">Two binary trees are considered the same if they are structurally identical and the nodes have the same value.</span><br><span class="line"></span><br><span class="line">Example 1:</span><br><span class="line"></span><br><span class="line">Input:     1         1</span><br><span class="line">          / \       / \</span><br><span class="line">         2   3     2   3</span><br><span class="line"></span><br><span class="line">        [1,2,3],   [1,2,3]</span><br><span class="line"></span><br><span class="line">Output: true</span><br><span class="line">Example 2:</span><br><span class="line"></span><br><span class="line">Input:     1         1</span><br><span class="line">          /           \</span><br><span class="line">         2             2</span><br><span class="line"></span><br><span class="line">        [1,2],     [1,null,2]</span><br><span class="line"></span><br><span class="line">Output: false</span><br><span class="line">Example 3:</span><br><span class="line"></span><br><span class="line">Input:     1         1</span><br><span class="line">          / \       / \</span><br><span class="line">         2   1     1   2</span><br><span class="line"></span><br><span class="line">        [1,2,1],   [1,1,2]</span><br><span class="line"></span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>题目其实很简单的一个递归Recursion,我们很轻松可以通过递归来解决<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">  public boolean isSameTree(TreeNode p, TreeNode q) &#123;</span><br><span class="line">    // p and q are both null</span><br><span class="line">    if (p == null &amp;&amp; q == null) return true;</span><br><span class="line">    // one of p and q is null</span><br><span class="line">    if (q == null || p == null) return false;</span><br><span class="line">    if (p.val != q.val) return false;</span><br><span class="line">    return isSameTree(p.right, q.right) &amp;&amp;</span><br><span class="line">            isSameTree(p.left, q.left);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>时间复杂度为O(n)，控件复杂度为O(logn)~O(n)之间，这道题就不考虑其他解法了，recursion目前看来是最优解</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://zehai.info/2020/01/10/2020-01-10-MatrixZero/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
+      <meta itemprop="name" content="Zhang Zehai">
+      <meta itemprop="description" content="会做饭的厨子">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zehai'blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/10/2020-01-10-MatrixZero/" class="post-title-link" itemprop="url">2020-01-10-MatrixZero</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-10 23:15:26" itemprop="dateCreated datePublished" datetime="2020-01-10T23:15:26+08:00">2020-01-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-30 09:33:31" itemprop="dateModified" datetime="2020-05-30T09:33:31+08:00">2020-05-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/01/10/2020-01-10-MatrixZero/" class="post-meta-item leancloud_visitors" data-flag-title="2020-01-10-MatrixZero" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/01/10/2020-01-10-MatrixZero/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/10/2020-01-10-MatrixZero/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="LeetCode-73"><a href="#LeetCode-73" class="headerlink" title="LeetCode 73"></a>LeetCode 73</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">Given a m x n matrix, if an element is 0, set its entire row and column to 0. Do it in-place.</span><br><span class="line"></span><br><span class="line">Example 1:</span><br><span class="line"></span><br><span class="line">Input: </span><br><span class="line">[</span><br><span class="line">  [1,1,1],</span><br><span class="line">  [1,0,1],</span><br><span class="line">  [1,1,1]</span><br><span class="line">]</span><br><span class="line">Output: </span><br><span class="line">[</span><br><span class="line">  [1,0,1],</span><br><span class="line">  [0,0,0],</span><br><span class="line">  [1,0,1]</span><br><span class="line">]</span><br><span class="line">Example 2:</span><br><span class="line"></span><br><span class="line">Input: </span><br><span class="line">[</span><br><span class="line">  [0,1,2,0],</span><br><span class="line">  [3,4,5,2],</span><br><span class="line">  [1,3,1,5]</span><br><span class="line">]</span><br><span class="line">Output: </span><br><span class="line">[</span><br><span class="line">  [0,0,0,0],</span><br><span class="line">  [0,4,5,0],</span><br><span class="line">  [0,3,1,0]</span><br><span class="line">]</span><br><span class="line">Follow up:</span><br><span class="line"></span><br><span class="line">A straight forward solution using O(mn) space is probably a bad idea.</span><br><span class="line">A simple improvement uses O(m + n) space, but still not the best solution.</span><br><span class="line">Could you devise a constant space solution?</span><br></pre></td></tr></table></figure>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>一开始以为递归可以解决，可以将矩阵一层层拆开，写下了如下的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">public void setZeroes(int[][] matrix) &#123;</span><br><span class="line">    int rows = matrix.length-1;</span><br><span class="line">    int cols = matrix[0].length-1;</span><br><span class="line">    regression(matrix, rows&gt;=cols?cols:rows);</span><br><span class="line">&#125;</span><br><span class="line">public void regression(int[][] matrix,int index)&#123;</span><br><span class="line">    if(index&lt;0)&#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    boolean flag = false;</span><br><span class="line">    for(int i =index;i&lt;matrix[0].length;i++)&#123;</span><br><span class="line">        if(matrix[index][i]==0)</span><br><span class="line">        &#123;</span><br><span class="line">            handleZero(matrix,i);</span><br><span class="line">            flag=true;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(flag==false)&#123;</span><br><span class="line">        for(int j =index;j&lt;matrix.length;j++)&#123;</span><br><span class="line">            if(matrix[j][index]==0)</span><br><span class="line">            &#123;</span><br><span class="line">                handleZero(matrix,j);</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    regression(matrix, --index);</span><br><span class="line">&#125;</span><br><span class="line">private void handleZero(int[][] matrix,int pos) &#123;</span><br><span class="line"></span><br><span class="line">    for(int i=matrix[0].length-1;i&gt;=pos;i--)&#123;</span><br><span class="line">        matrix[pos][i]=0;</span><br><span class="line">    &#125;</span><br><span class="line">    for(int j=matrix.length-1;j&gt;=pos;j--)&#123;</span><br><span class="line">        matrix[j][pos]=0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>写完后很快发现不能够实现，原因就在于他只能管理到内层，外层标为0后，没办法做额外的标记（其实生产代码可以打一些标记），所以只能抛弃这个本以为很简单的方法，该用了set合集去记录要设置0行列的行号或者列号，这个复杂度并不是很复杂，但是执行完发现代码的效率还是很低，先放代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">  public void setZeroes(int[][] matrix) &#123;</span><br><span class="line">    int R = matrix.length;</span><br><span class="line">    int C = matrix[0].length;</span><br><span class="line">    Set&lt;Integer&gt; rows = new HashSet&lt;Integer&gt;();</span><br><span class="line">    Set&lt;Integer&gt; cols = new HashSet&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line">    for (int i = 0; i &lt; R; i++) &#123;</span><br><span class="line">      for (int j = 0; j &lt; C; j++) &#123;</span><br><span class="line">        if (matrix[i][j] == 0) &#123;</span><br><span class="line">          rows.add(i);</span><br><span class="line">          cols.add(j);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for (int i = 0; i &lt; R; i++) &#123;</span><br><span class="line">      for (int j = 0; j &lt; C; j++) &#123;</span><br><span class="line">        if (rows.contains(i) || cols.contains(j)) &#123;</span><br><span class="line">          matrix[i][j] = 0;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>代码低效的原因在于动用了两层循环，时间复杂度非常低，题目的置0是有规律的，不是无规律的，所以我开始寻求更新简单的方法,先贴最优解，要睡觉了，我的头发啊</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public void setZeroes(int[][] matrix) &#123;</span><br><span class="line">		int R = matrix.length;</span><br><span class="line">		int C = matrix[0].length;</span><br><span class="line">		boolean isCol = false;</span><br><span class="line">		</span><br><span class="line">		for(int i=0; i&lt;R; i++) &#123;</span><br><span class="line">			if (matrix[i][0] == 0) &#123;</span><br><span class="line">		        isCol = true;</span><br><span class="line">		    &#125;</span><br><span class="line">			for(int j=1; j&lt;C; j++) &#123;</span><br><span class="line">				if(matrix[i][j]==0) &#123;</span><br><span class="line">					matrix[0][j] = 0;</span><br><span class="line">					matrix[i][0] = 0;</span><br><span class="line">				&#125;	</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		// Iterate over the array once again and using the first row and first column, update the elements.</span><br><span class="line">		for(int i=1; i&lt;R; i++) &#123;</span><br><span class="line">			for(int j=1; j&lt;C; j++) &#123;</span><br><span class="line">				if(matrix[i][0]==0 || matrix[0][j]==0) &#123;</span><br><span class="line">					matrix[i][j] = 0;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		// See if the first row needs to be set to zero as well</span><br><span class="line">		if(matrix[0][0]==0) &#123;</span><br><span class="line">			for(int j=0; j&lt;C; j++) &#123;</span><br><span class="line">				matrix[0][j] = 0;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		// See if the first column needs to be set to zero as well</span><br><span class="line">		if(isCol) &#123;</span><br><span class="line">			for(int i=0; i&lt;R; i++) &#123;</span><br><span class="line">				matrix[i][0] = 0;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://zehai.info/2020/01/09/2020-01-09-RidisTransaction/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
+      <meta itemprop="name" content="Zhang Zehai">
+      <meta itemprop="description" content="会做饭的厨子">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zehai'blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/09/2020-01-09-RidisTransaction/" class="post-title-link" itemprop="url">2020-01-09-RedisTransaction</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-09 22:42:06" itemprop="dateCreated datePublished" datetime="2020-01-09T22:42:06+08:00">2020-01-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-30 09:33:31" itemprop="dateModified" datetime="2020-05-30T09:33:31+08:00">2020-05-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/01/09/2020-01-09-RidisTransaction/" class="post-meta-item leancloud_visitors" data-flag-title="2020-01-09-RedisTransaction" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/01/09/2020-01-09-RidisTransaction/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/09/2020-01-09-RidisTransaction/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>官网doc：<a href="https://redis.io/topics/transactions" target="_blank" rel="noopener">https://redis.io/topics/transactions</a></p>
+<p>本文纯属阅读笔记，无学术参考价值</p>
+</blockquote>
+<h1 id="what"><a href="#what" class="headerlink" title="what"></a>what</h1><p>事务（transaction）的本质就是处理好几个动作，要么都成功，要么其中一个失败就全部回滚</p>
+<p>每门语言都会有事务的支持，node也有async的方法实现事务几个动作串行，或者并行，一个失败全部回滚，之前写过支付的例子，使用async.waterfall,购买会员后</p>
+<p>1.查询支付宝返回支付是否成功</p>
+<p>2.获取用户所买会员的等级及相关权限</p>
+<p>3.将权益插入用户表中</p>
+<p>4.将订单数据记录到订单表中，方便后台查看订单量</p>
+<p>大致步骤就是这些</p>
+<p>Redis主要使用MULTI ,EXEC,DISCARD WATCH来实现事务的功能</p>
+<p>遵循以下原则：</p>
+<ul>
+<li>所有命令被序列化后顺序执行，且执行期间不接受其他请求，保证隔离性</li>
+<li>EXEC命令触发事务中所有命令的执行，因此，如果客户端调用MULTI命令之前失去连接，则不执行任何操作。如果EXEC命令调用过，则所有的命令都会被执行</li>
+</ul>
+<h1 id="how"><a href="#how" class="headerlink" title="how"></a>how</h1><p>MULTI输入事务以OK答复，此时用户可以发送多个命令，Redis都不会执行，而是排队，一旦调用EXEC，则将会执行所有命令，调用DISCARD将刷新（Flush？清空？重新执行？）事务队列并退出事务</p>
+<p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; MULTI</span><br><span class="line">OK</span><br><span class="line">&gt; INCR foo</span><br><span class="line">QUEUED</span><br><span class="line">&gt; INCR bar</span><br><span class="line">QUEUED</span><br><span class="line">&gt; EXEC</span><br><span class="line">1) (integer) 1</span><br><span class="line">2) (integer) 1</span><br></pre></td></tr></table></figure>
+<p>可以看出EXEC返回一个数组，其中每个元素都是事务中单个命令的答复，其发出顺序与命令相同</p>
+<p>当Reids连接处于MULTI的请求时，所有的命令都将以字符串queued答复，当EXEC时，将顺序执行</p>
+<h2 id="errors"><a href="#errors" class="headerlink" title="errors"></a>errors</h2><p>可能存在两种命令错误：</p>
+<ul>
+<li>命令可能无法排队，因此在EXEC之前可能有错误（包括命令语法错误）</li>
+<li>调用EXEC后，命令执行失败</li>
+</ul>
+<p>客户端通过检查已排队（queued）的命令返回值来判断第一种错误，另外从2.6.5开始，服务器将记住在命令排队期间发生的错误，并且拒绝执行事务，返回错误并自动丢弃事务</p>
+<p><strong>EXEC执行后错误不会特殊处理，所有的命令都将被执及时有些命令失败</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">MULTI</span><br><span class="line">+OK</span><br><span class="line">SET a abc</span><br><span class="line">+QUEUED</span><br><span class="line">LPOP a</span><br><span class="line">+QUEUED</span><br><span class="line">EXEC</span><br><span class="line">*2</span><br><span class="line">+OK</span><br><span class="line">-ERR Operation against a key holding the wrong kind of value</span><br></pre></td></tr></table></figure>
+<p><strong>即时命令失败，队列里的其他命令也会处理</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    name:stu</span><br><span class="line">    time:1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://zehai.info/2020/01/08/2020-01-08-MinimumPathSum/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
+      <meta itemprop="name" content="Zhang Zehai">
+      <meta itemprop="description" content="会做饭的厨子">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zehai'blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/08/2020-01-08-MinimumPathSum/" class="post-title-link" itemprop="url">2020-01-08-MinimunPathSum</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-08 22:42:06" itemprop="dateCreated datePublished" datetime="2020-01-08T22:42:06+08:00">2020-01-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-30 09:33:31" itemprop="dateModified" datetime="2020-05-30T09:33:31+08:00">2020-05-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/01/08/2020-01-08-MinimumPathSum/" class="post-meta-item leancloud_visitors" data-flag-title="2020-01-08-MinimunPathSum" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/01/08/2020-01-08-MinimumPathSum/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/08/2020-01-08-MinimumPathSum/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Leetcode-64"><a href="#Leetcode-64" class="headerlink" title="Leetcode-64"></a>Leetcode-64</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path.</span><br><span class="line"></span><br><span class="line">Note: You can only move either down or right at any point in time.</span><br><span class="line"></span><br><span class="line">Example:</span><br><span class="line"></span><br><span class="line">Input:</span><br><span class="line">[</span><br><span class="line">  [1,3,1],</span><br><span class="line">  [1,5,1],</span><br><span class="line">  [4,2,1]</span><br><span class="line">]</span><br><span class="line">Output: 7</span><br><span class="line">Explanation: Because the path 1→3→1→1→1 minimizes the sum.</span><br></pre></td></tr></table></figure>
+<h1 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h1><p>解法为简单的动态规划，只要找到比较该元素，上方和左方的值的最小值，然后与该值相加，就可以得到解</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int minPathSum(int[][] grid) &#123;</span><br><span class="line">        for(int i=1; i&lt;grid.length; i++) grid[i][0] += grid[i-1][0];</span><br><span class="line">        for(int j=1; j&lt;grid[0].length; j++) grid[0][j] += grid[0][j-1];</span><br><span class="line">        for (int i=1; i&lt;grid.length; i++) &#123;</span><br><span class="line">            for (int j=1; j&lt;grid[0].length; j++) &#123;</span><br><span class="line">                grid[i][j] = Math.min(grid[i][j-1], grid[i-1][j]) + grid[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return grid[grid.length-1][grid[0].length-1];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://zehai.info/2020/01/08/2020-01-08-SortColors/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
+      <meta itemprop="name" content="Zhang Zehai">
+      <meta itemprop="description" content="会做饭的厨子">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zehai'blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/08/2020-01-08-SortColors/" class="post-title-link" itemprop="url">2020-01-08-SortColors</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-08 22:42:06" itemprop="dateCreated datePublished" datetime="2020-01-08T22:42:06+08:00">2020-01-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-30 09:33:31" itemprop="dateModified" datetime="2020-05-30T09:33:31+08:00">2020-05-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/01/08/2020-01-08-SortColors/" class="post-meta-item leancloud_visitors" data-flag-title="2020-01-08-SortColors" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/01/08/2020-01-08-SortColors/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/08/2020-01-08-SortColors/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Leetcode-75"><a href="#Leetcode-75" class="headerlink" title="Leetcode-75"></a>Leetcode-75</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Given an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue.</span><br><span class="line"></span><br><span class="line">Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.</span><br><span class="line"></span><br><span class="line">Note: You are not suppose to use the library&apos;s sort function for this problem.</span><br><span class="line"></span><br><span class="line">Example:</span><br><span class="line"></span><br><span class="line">Input: [2,0,2,1,1,0]</span><br><span class="line">Output: [0,0,1,1,2,2]</span><br><span class="line">Follow up:</span><br><span class="line"></span><br><span class="line">A rather straight forward solution is a two-pass algorithm using counting sort.</span><br><span class="line">First, iterate the array counting number of 0&apos;s, 1&apos;s, and 2&apos;s, then overwrite array with total number of 0&apos;s, then 1&apos;s and followed by 2&apos;s.</span><br><span class="line">Could you come up with a one-pass algorithm using only constant space?</span><br></pre></td></tr></table></figure>
+<h1 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h1><p>题目乍一看非常简单,但确实说使用简单的sort方法以及o(n^2)的排序确实会浪费时间复杂度，本着好奇心，我试了一下，果然成了吊车尾</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortColors</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;nums.length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;nums.length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]&gt;nums[j])&#123;</span><br><span class="line">                    <span class="keyword">int</span> tmp=nums[i];</span><br><span class="line">                    nums[i]=nums[j];</span><br><span class="line">                    nums[j]=tmp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Runtime: <span class="number">1</span> ms, faster than <span class="number">6.35</span>% of Java online submissions <span class="keyword">for</span> Sort Colors.</span><br></pre></td></tr></table></figure>
+<p>该题优化的核心位置是该数组是一个一维数组，设置两个指针，左边遍历0，遇到0往左放，遇到2往右放，r和l为左右分界线，index记录最后一个0的位置<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortColors</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> r = nums.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(l &lt;= r) &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[l] == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span>(l &gt; index) &#123;</span><br><span class="line">                    <span class="keyword">int</span> tmp = nums[index];</span><br><span class="line">                    nums[index] = nums[l];</span><br><span class="line">                    nums[l] = tmp;</span><br><span class="line">                    index++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    l++;</span><br><span class="line">                    index++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums[l] == <span class="number">2</span>) &#123;</span><br><span class="line">                <span class="keyword">int</span> tmp = nums[r];</span><br><span class="line">                nums[r] = <span class="number">2</span>;</span><br><span class="line">                nums[l] = tmp;</span><br><span class="line">                r--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> l++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://zehai.info/2020/01/07/2020-01-07-关于Promise的思考/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
+      <meta itemprop="name" content="Zhang Zehai">
+      <meta itemprop="description" content="会做饭的厨子">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zehai'blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/07/2020-01-07-关于Promise的思考/" class="post-title-link" itemprop="url">2020-01-07-关于Promise的思考</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-07 22:42:06" itemprop="dateCreated datePublished" datetime="2020-01-07T22:42:06+08:00">2020-01-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-30 09:33:31" itemprop="dateModified" datetime="2020-05-30T09:33:31+08:00">2020-05-30</time>
+              </span>
+
+          
+            <span id="/2020/01/07/2020-01-07-关于Promise的思考/" class="post-meta-item leancloud_visitors" data-flag-title="2020-01-07-关于Promise的思考" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/01/07/2020-01-07-关于Promise的思考/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/07/2020-01-07-关于Promise的思考/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>（这道题在互联网上已经有了）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">可以添加任务，任务包含任务数据，任务延迟触发的等待时间。</span><br><span class="line">在任务到达触发时间点时，自动触发执行此任务。</span><br><span class="line">队列中任务保持先进先出原则：假设 A 任务的触发等待时间为 X，B 任务的触发等待时间为 Y，B 在 A 之后被添加入队列，则 A 的前驱任务执行完成后等待时间 X 后，才执行 A，同理在 A 执行完成后，等待时间 Y，才执行 B。</span><br></pre></td></tr></table></figure>
+<h1 id="思路过程"><a href="#思路过程" class="headerlink" title="思路过程"></a>思路过程</h1><h2 id="1-Java上线"><a href="#1-Java上线" class="headerlink" title="1.Java上线"></a>1.Java上线</h2><p>读题目就是<strong>延时队列</strong>的特征，Java有锁，有多线程，写起来多方便</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.BlockingQueue;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.DelayQueue;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Delayed;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HandWritingQueue</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> BlockingQueue&lt;DelayedElement&gt; deque = <span class="keyword">new</span> DelayQueue&lt;&gt;();</span><br><span class="line">        Runnable producerRunnable = <span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">while</span> (<span class="keyword">true</span> &amp;&amp; i&gt;<span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        --i;</span><br><span class="line">                        System.out.println(<span class="string">"producing "</span>+i+<span class="string">",wait "</span>+i+<span class="string">" seconds"</span>);</span><br><span class="line">                        deque.put(<span class="keyword">new</span> DelayedElement(<span class="number">1000</span> * i, <span class="string">"i="</span> + i));</span><br><span class="line">                        Thread.sleep(<span class="number">200</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        Runnable customerRunnable = <span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        System.out.println(<span class="string">"consuming:"</span> + deque.take().msg);</span><br><span class="line">                        <span class="comment">//Thread.sleep(500);</span></span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        Runnable getSize= <span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">                    System.out.println(<span class="string">"size="</span>+deque.size());</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(producerRunnable);</span><br><span class="line">        thread1.start();</span><br><span class="line"></span><br><span class="line">        Thread thread2 = <span class="keyword">new</span> Thread(customerRunnable);</span><br><span class="line">        thread2.start();</span><br><span class="line"></span><br><span class="line">        Thread thread3 = <span class="keyword">new</span> Thread(getSize);</span><br><span class="line">        thread3.start();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">DelayedElement</span> <span class="keyword">implements</span> <span class="title">Delayed</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">long</span> expire;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> String msg;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">DelayedElement</span><span class="params">(<span class="keyword">long</span> delay, String msg)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.msg = msg;</span><br><span class="line">            expire = System.currentTimeMillis() + delay;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getDelay</span><span class="params">(TimeUnit unit)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> unit.convert(<span class="keyword">this</span>.expire - System.currentTimeMillis(), TimeUnit.MILLISECONDS);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Delayed o)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span>  -<span class="number">1</span>;<span class="comment">//FIFO</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-Node上线"><a href="#2-Node上线" class="headerlink" title="2.Node上线"></a>2.Node上线</h2><p>被提醒该题目可以用node实现，且不需要借助redis来做，然后我上手就是一把操作：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DelayElement</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(data, expire) &#123;</span><br><span class="line">    <span class="keyword">this</span>.data = data;</span><br><span class="line">    <span class="keyword">this</span>.expire = expire;<span class="comment">//second</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> delayArray = [];</span><br><span class="line"></span><br><span class="line"><span class="comment">//push two element in delayArray</span></span><br><span class="line">delayArray.push(<span class="keyword">new</span> DelayElement(<span class="number">1</span>, <span class="number">2</span>));</span><br><span class="line">delayArray.push(<span class="keyword">new</span> DelayElement(<span class="number">2</span>, <span class="number">1</span>));</span><br><span class="line"><span class="keyword">let</span> length = delayArray.length;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> time_cnt = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (delayArray.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> de = delayArray.shift();</span><br><span class="line">  time_cnt += de.expire;<span class="comment">//serial</span></span><br><span class="line">  (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'expire data is :'</span> + de.data + <span class="string">',expire time is :'</span> + de.expire);</span><br><span class="line">    &#125;, time_cnt * <span class="number">1000</span>);</span><br><span class="line">  &#125;)();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我以为设计的考点也就是立即执行函数，延时的使用，但是这里的for循环是个伪串行，实际上是并发的，也为第三步的修改提供了bug</p>
+<h2 id="3-Promise时代"><a href="#3-Promise时代" class="headerlink" title="3.Promise时代"></a>3.Promise时代</h2><p>一开始我是想把async函数放进去，写了如下的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span></span><br><span class="line"><span class="keyword">const</span> delayArray = [];</span><br><span class="line"><span class="keyword">const</span> daPush = <span class="function">(<span class="params">data, expire</span>) =&gt;</span> &#123;</span><br><span class="line">  delayArray.push(<span class="keyword">async</span> () =&gt;  &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'data is '</span> + data + <span class="string">' and expire is '</span> + expire);</span><br><span class="line">    &#125;, expire * <span class="number">1000</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line">daPush(<span class="number">1</span>, <span class="number">4</span>);<span class="comment">//2 seconds</span></span><br><span class="line">daPush(<span class="number">2</span>, <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> da <span class="keyword">of</span> delayArray) &#123;</span><br><span class="line">    <span class="keyword">await</span> da();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>发现代码还是串行的，然后查了一下可能的问题（以下为个人猜测，欢迎指正）async声明的函数会包装成Promise不假，但是for循环会并发去执行await中的async</p>
+<p>4.正解</p>
+<p><del>promise执行会阻塞主线程</del></p>
+<p>Macrotasks和Microtasks 都属于上述的异步任务中的一种，他们分别有如下API：<br><strong>macrotasks:</strong> setTimeout, setInterval, setImmediate, I/O, UI rendering<br><strong>microtasks:</strong> process.nextTick, Promise, MutationObserver</p>
+<p>任务队列中，在每一次事件循环中，<strong>macrotask</strong>只会<strong>提取一个执行</strong>，而<strong>microtask</strong>会<strong>一直</strong>提取，直到microsoft队列<strong>为空</strong>为止。</p>
+<p>也就是说如果某个microtask任务被推入到执行中，那么当主线程任务执行完成后，会循环调用该队列任务中的下一个任务来执行，直到该任务队列到最后一个任务为止。</p>
+<p>而事件循环每次只会入栈一个macrotask,<strong>主线程</strong>执行完成该任务后又会检查<strong>microtasks</strong>队列并完成里面的所有任务后再执行<strong>macrotask</strong>的任务。</p>
+<p>以及macrotask应该对应的是check队列（该行未验证）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span></span><br><span class="line"><span class="keyword">const</span> delayArray = [];</span><br><span class="line"><span class="keyword">const</span> daPush = <span class="function">(<span class="params">data, expire</span>) =&gt;</span> &#123;</span><br><span class="line">  delayArray.push(<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span>(data)</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'data is '</span> + data + <span class="string">' and expire is '</span> + expire);</span><br><span class="line">        resolve(<span class="literal">true</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span>&#123;</span><br><span class="line">        reject(<span class="string">'there is nodata'</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, expire * <span class="number">1000</span>);</span><br><span class="line">  &#125;));</span><br><span class="line">&#125;;</span><br><span class="line">daPush(<span class="number">1</span>, <span class="number">4</span>);<span class="comment">//2 seconds</span></span><br><span class="line">daPush(<span class="number">2</span>, <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> da <span class="keyword">of</span> delayArray) &#123;</span><br><span class="line">    da().then(<span class="function">(<span class="params">value</span>)=&gt;</span>&#123;</span><br><span class="line">      <span class="comment">// console.log(value);</span></span><br><span class="line">    &#125;).catch(<span class="function">(<span class="params">value</span>)=&gt;</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(value);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">//没有28-33，只35行也可以</span></span><br><span class="line">    <span class="comment">// await da();</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://zehai.info/2020/01/07/2020-01-07-SetTimeout/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -220,10 +949,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-01-07 13:01:52 / Modified: 23:33:02" itemprop="dateCreated datePublished" datetime="2020-01-07T13:01:52+08:00">2020-01-07</time>
+              <time title="Created: 2020-01-07 13:01:52" itemprop="dateCreated datePublished" datetime="2020-01-07T13:01:52+08:00">2020-01-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-30 09:33:31" itemprop="dateModified" datetime="2020-05-30T09:33:31+08:00">2020-05-30</time>
+              </span>
 
           
             <span id="/2020/01/07/2020-01-07-SetTimeout/" class="post-meta-item leancloud_visitors" data-flag-title="2020-01-07-SetTimeout" title="Views">
@@ -306,10 +1041,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-01-06 20:55:51 / Modified: 22:55:50" itemprop="dateCreated datePublished" datetime="2020-01-06T20:55:51+08:00">2020-01-06</time>
+              <time title="Created: 2020-01-06 20:55:51" itemprop="dateCreated datePublished" datetime="2020-01-06T20:55:51+08:00">2020-01-06</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-30 09:33:31" itemprop="dateModified" datetime="2020-05-30T09:33:31+08:00">2020-05-30</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -410,10 +1151,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-01-03 17:01:03 / Modified: 17:23:21" itemprop="dateCreated datePublished" datetime="2020-01-03T17:01:03+08:00">2020-01-03</time>
+              <time title="Created: 2020-01-03 17:01:03" itemprop="dateCreated datePublished" datetime="2020-01-03T17:01:03+08:00">2020-01-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-30 09:33:31" itemprop="dateModified" datetime="2020-05-30T09:33:31+08:00">2020-05-30</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -487,824 +1234,11 @@
   
   
 
-        
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/12/16/2019-12-22-zookeeper概要/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
-      <meta itemprop="name" content="Zhang Zehai">
-      <meta itemprop="description" content="会做饭的厨子">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zehai'blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/16/2019-12-22-zookeeper概要/" class="post-title-link" itemprop="url">2019-12-22-zookeeper概要</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-16 20:37:30" itemprop="dateCreated datePublished" datetime="2019-12-16T20:37:30+08:00">2019-12-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-22 14:08:56" itemprop="dateModified" datetime="2019-12-22T14:08:56+08:00">2019-12-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/zookeeper/" itemprop="url" rel="index"><span itemprop="name">zookeeper</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/12/16/2019-12-22-zookeeper概要/" class="post-meta-item leancloud_visitors" data-flag-title="2019-12-22-zookeeper概要" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2019/12/16/2019-12-22-zookeeper概要/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/16/2019-12-22-zookeeper概要/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>含义：动物管理员，管理节点</p>
-<p>作用：开源的分布式应用程序协调服务（简单来说，就是一个抽象出来，专门管理各个服务的管理员，发现服务，注册服务，以实现分布式应用的联合工作）</p>
-<p>feature</p>
-<ul>
-<li>树状目录结构，节点称作znode</li>
-<li>持久节点（客户端断开仍然存在）</li>
-<li>临时节点（断开消失）</li>
-<li>节点监听（通过get exists,getchildren来实行监听）</li>
-</ul>
-<p>应用：</p>
-<ul>
-<li>分布式锁</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>问题场景</td>
-<td>我们有一个服务C，将A系统的订单数据，发送到B系统进行财务处理，但这个服务部C署了三个服务器来进行并发，其中有些数据在传送处理时会new一个objectid，如果不添加锁，该数据可能被两个服务同时调起，在B服务中生成两条记录</td>
-</tr>
-<tr>
-<td>解决方案</td>
-<td>我们同步数据时候，需要给同一个数据加锁，防止该数据同时被两个服务调起，服务访问某条订单数据时候，需要先获得锁，操作完后释放锁</td>
-</tr>
-<tr>
-<td>实现方式</td>
-<td>每个服务连接一个znode的下属有序临时节点，并监听上个节点的变化，编号最小的临时节点获得锁，操作资源，来实现</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>服务注册和发现</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>问题场景</td>
-<td>我们同步数据的服务C（上个表格中描述）,可能是部署在一个机器上的多进程，也可能是部署在多个物理ip上的服务，他是动态变化的，如果没有zookeeper类的软件，可能我每改一次ip，都需要重启一下服务，服务宕机了，也要改ip（不然404）</td>
-</tr>
-<tr>
-<td>解决方案</td>
-<td>我们需要有个服务来管理应用状态，知道服务的运行状态，这样，当其他服务调起这个服务的时候，才能通过zookeeper提供的地址进行同行</td>
-</tr>
-<tr>
-<td>实现方式</td>
-<td>服务启动会注册到zookeeper，并保持心跳，其他服务想要调用某服务的时候，询问zookeeper拿到地址，然后发送请求报文（例如RPC）</td>
-</tr>
-<tr>
-<td></td>
-<td>1.每个应用创建一个持久节点，每个服务在持久节点下建立临时节点，不同应用间会有监听，A服务如果变动，B服务会收到订阅</td>
-</tr>
-<tr>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/12/16/2019-12-22-SpringBoot概要 /">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
-      <meta itemprop="name" content="Zhang Zehai">
-      <meta itemprop="description" content="会做饭的厨子">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zehai'blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/16/2019-12-22-SpringBoot概要 /" class="post-title-link" itemprop="url">2019-12-22-SpringBoot概要</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-16 20:37:30" itemprop="dateCreated datePublished" datetime="2019-12-16T20:37:30+08:00">2019-12-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-22 14:33:11" itemprop="dateModified" datetime="2019-12-22T14:33:11+08:00">2019-12-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/12/16/2019-12-22-SpringBoot概要 /" class="post-meta-item leancloud_visitors" data-flag-title="2019-12-22-SpringBoot概要" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2019/12/16/2019-12-22-SpringBoot概要 /#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/16/2019-12-22-SpringBoot概要 /" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>含义：spring 的简化配置版本（继承父类依赖，拥有父类的所有配置）</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--你的项目pom文件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.4.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--点开spring-boot-starter-parent，文件相对位置\org\springframework\boot\spring-boot-starter-parent\2.0.4.RELEASE--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.4.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">relativePath</span>&gt;</span>../../spring-boot-dependencies<span class="tag">&lt;/<span class="name">relativePath</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>微服务</p>
-<p>AOP</p>
-<p>简化部署，可以再pom.xml中配置plugins来实现导出jar包，方便执行</p>
-<p>Features:</p>
-<ul>
-<li>starter</li>
-<li>入口类标记@SpringBootApplication</li>
-<li>SpringBoot配置类@SpringBootConfiguration</li>
-<li>配置类@Configuration</li>
-<li>开启自动配置@EnableAutoConfiguration</li>
-<li>自动配置包@AutoConfigurationPackage</li>
-<li>导入组件@Import</li>
-</ul>
-<p>疑惑</p>
-<ul>
-<li>为什么使用注解</li>
-<li>为什么需要AOP</li>
-<li>为什么选择springboot</li>
-<li></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/12/15/2019-12-15-SpringBootApplication/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
-      <meta itemprop="name" content="Zhang Zehai">
-      <meta itemprop="description" content="会做饭的厨子">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zehai'blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/15/2019-12-15-SpringBootApplication/" class="post-title-link" itemprop="url">2019-12-15-@SpringBootApplication</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-15 23:13:51" itemprop="dateCreated datePublished" datetime="2019-12-15T23:13:51+08:00">2019-12-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-16 00:06:06" itemprop="dateModified" datetime="2019-12-16T00:06:06+08:00">2019-12-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/12/15/2019-12-15-SpringBootApplication/" class="post-meta-item leancloud_visitors" data-flag-title="2019-12-15-@SpringBootApplication" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2019/12/15/2019-12-15-SpringBootApplication/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/15/2019-12-15-SpringBootApplication/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="启动类"><a href="#启动类" class="headerlink" title="启动类"></a>启动类</h1><p>我们可以见到最简单的springboot的application.java文件如下<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringTestApplication</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(SpringTestApplication.class, args);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>实际上，SpringApplication的run方法时首先会创建一个SpringApplication类的对象，利用构造方法创建SpringApplication对象时会调用initialize方法</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ConfigurableApplicationContext <span class="title">run</span><span class="params">(Object source, String... args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> run(<span class="keyword">new</span> Object[] &#123; source &#125;, args);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ConfigurableApplicationContext <span class="title">run</span><span class="params">(Object[] sources, String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> SpringApplication(sources).run(args);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">SpringApplication</span><span class="params">(Object... sources)</span> </span>&#123;</span><br><span class="line">		initialize(sources);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<p>其中initialize方法如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">`<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initialize</span><span class="params">(Object[] sources)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 在sources不为空时，保存配置类</span></span><br><span class="line">    <span class="keyword">if</span> (sources != <span class="keyword">null</span> &amp;&amp; sources.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.sources.addAll(Arrays.asList(sources));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 判断是否为web应用</span></span><br><span class="line">    <span class="keyword">this</span>.webEnvironment = deduceWebEnvironment();</span><br><span class="line">    <span class="comment">// 获取并保存容器初始化类，通常在web应用容器初始化使用</span></span><br><span class="line">    <span class="comment">// 利用loadFactoryNames方法从路径MEAT-INF/spring.factories中找到所有的ApplicationContextInitializer</span></span><br><span class="line">    setInitializers((Collection) getSpringFactoriesInstances(</span><br><span class="line">        ApplicationContextInitializer.class));</span><br><span class="line">    <span class="comment">// 获取并保存监听器</span></span><br><span class="line">    <span class="comment">// 利用loadFactoryNames方法从路径MEAT-INF/spring.factories中找到所有的ApplicationListener</span></span><br><span class="line">    setListeners((Collection) getSpringFactoriesInstances(ApplicationListener.class));</span><br><span class="line">    <span class="comment">// 从堆栈信息获取包含main方法的主配置类</span></span><br><span class="line">    <span class="keyword">this</span>.mainApplicationClass = deduceMainApplicationClass();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>实例化后调用run：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ConfigurableApplicationContext <span class="title">run</span><span class="params">(String... args)</span> </span>&#123;</span><br><span class="line">    StopWatch stopWatch = <span class="keyword">new</span> StopWatch();</span><br><span class="line">    stopWatch.start();</span><br><span class="line">    ConfigurableApplicationContext context = <span class="keyword">null</span>;</span><br><span class="line">    FailureAnalyzers analyzers = <span class="keyword">null</span>;</span><br><span class="line">    <span class="comment">// 配置属性</span></span><br><span class="line">    configureHeadlessProperty();</span><br><span class="line">    <span class="comment">// 获取监听器</span></span><br><span class="line">    <span class="comment">// 利用loadFactoryNames方法从路径MEAT-INF/spring.factories中找到所有的SpringApplicationRunListener</span></span><br><span class="line">    SpringApplicationRunListeners listeners = getRunListeners(args);</span><br><span class="line">    <span class="comment">// 启动监听</span></span><br><span class="line">    <span class="comment">// 调用每个SpringApplicationRunListener的starting方法</span></span><br><span class="line">    listeners.starting();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 将参数封装到ApplicationArguments对象中</span></span><br><span class="line">        ApplicationArguments applicationArguments = <span class="keyword">new</span> DefaultApplicationArguments(</span><br><span class="line">            args);</span><br><span class="line">        <span class="comment">// 准备环境</span></span><br><span class="line">        <span class="comment">// 触发监听事件——调用每个SpringApplicationRunListener的environmentPrepared方法</span></span><br><span class="line">        ConfigurableEnvironment environment = prepareEnvironment(listeners,</span><br><span class="line">            applicationArguments);</span><br><span class="line">        <span class="comment">// 从环境中取出Banner并打印</span></span><br><span class="line">        Banner printedBanner = printBanner(environment);</span><br><span class="line">        <span class="comment">// 依据是否为web环境创建web容器或者普通的IOC容器</span></span><br><span class="line">        context = createApplicationContext();</span><br><span class="line">        analyzers = <span class="keyword">new</span> FailureAnalyzers(context);</span><br><span class="line">        <span class="comment">// 准备上下文</span></span><br><span class="line">        <span class="comment">// 1.将environment保存到容器中</span></span><br><span class="line">        <span class="comment">// 2.触发监听事件——调用每个SpringApplicationRunListeners的contextPrepared方法</span></span><br><span class="line">        <span class="comment">// 3.调用ConfigurableListableBeanFactory的registerSingleton方法向容器中注入applicationArguments与printedBanner</span></span><br><span class="line">        <span class="comment">// 4.触发监听事件——调用每个SpringApplicationRunListeners的contextLoaded方法</span></span><br><span class="line">        prepareContext(context, environment, listeners, applicationArguments,</span><br><span class="line">            printedBanner);</span><br><span class="line">        <span class="comment">// 刷新容器，完成组件的扫描，创建，加载等</span></span><br><span class="line">        refreshContext(context);</span><br><span class="line">        afterRefresh(context, applicationArguments);</span><br><span class="line">        <span class="comment">// 触发监听事件——调用每个SpringApplicationRunListener的finished方法</span></span><br><span class="line">        listeners.finished(context, <span class="keyword">null</span>);</span><br><span class="line">        stopWatch.stop();</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.logStartupInfo) &#123;</span><br><span class="line">            <span class="keyword">new</span> StartupInfoLogger(<span class="keyword">this</span>.mainApplicationClass)</span><br><span class="line">                .logStarted(getApplicationLog(), stopWatch);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 返回容器</span></span><br><span class="line">        <span class="keyword">return</span> context;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> (Throwable ex) &#123;</span><br><span class="line">        handleRunFailure(context, listeners, analyzers, ex);</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(ex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>为了建立调用逻辑画了一张图，比较粗糙</p>
-<p><img src="..\img\springbootApplication.png" alt=""></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>SpringApplication.run一共做了两件事</p>
-<ul>
-<li>创建SpringApplication对象；在对象初始化时保存事件监听器，容器初始化类以及判断是否为web应用，保存包含main方法的主配置类。</li>
-<li>调用run方法；准备spring的上下文，完成容器的初始化，创建，加载等。会在不同的时机触发监听器的不同事件</li>
-</ul>
-<p><a href="https://www.cnblogs.com/davidwang456/p/5846513.html" target="_blank" rel="noopener">https://www.cnblogs.com/davidwang456/p/5846513.html</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/12/14/2019-12-14-分布式系统/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
-      <meta itemprop="name" content="Zhang Zehai">
-      <meta itemprop="description" content="会做饭的厨子">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zehai'blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/14/2019-12-14-分布式系统/" class="post-title-link" itemprop="url">2019-12-14-分布式系统</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-12-14 15:41:03 / Modified: 16:54:29" itemprop="dateCreated datePublished" datetime="2019-12-14T15:41:03+08:00">2019-12-14</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Distribution/" itemprop="url" rel="index"><span itemprop="name">Distribution</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/12/14/2019-12-14-分布式系统/" class="post-meta-item leancloud_visitors" data-flag-title="2019-12-14-分布式系统" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2019/12/14/2019-12-14-分布式系统/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/14/2019-12-14-分布式系统/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[TOC]</p>
-<h1 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h1><p>原因：<br>目的：</p>
-<h2 id="数据库唯一索引"><a href="#数据库唯一索引" class="headerlink" title="数据库唯一索引"></a>数据库唯一索引</h2><h2 id="redis-的SETNX"><a href="#redis-的SETNX" class="headerlink" title="redis 的SETNX"></a>redis 的SETNX</h2><h2 id="redis的RedLock"><a href="#redis的RedLock" class="headerlink" title="redis的RedLock"></a>redis的RedLock</h2><h1 id="分布式事务"><a href="#分布式事务" class="headerlink" title="分布式事务"></a>分布式事务</h1><h1 id="CAP"><a href="#CAP" class="headerlink" title="CAP"></a>CAP</h1><h1 id="BASE"><a href="#BASE" class="headerlink" title="BASE"></a>BASE</h1><h1 id="Paxos"><a href="#Paxos" class="headerlink" title="Paxos"></a>Paxos</h1><h1 id="Raft"><a href="#Raft" class="headerlink" title="Raft"></a>Raft</h1>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/10/27/2019-10-27-DynamicProgramming动态规划/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
-      <meta itemprop="name" content="Zhang Zehai">
-      <meta itemprop="description" content="会做饭的厨子">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zehai'blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/27/2019-10-27-DynamicProgramming动态规划/" class="post-title-link" itemprop="url">2019-10-27-DynamicProgramming动态规划</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-10-27 12:01:05 / Modified: 12:07:41" itemprop="dateCreated datePublished" datetime="2019-10-27T12:01:05+08:00">2019-10-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithms/" itemprop="url" rel="index"><span itemprop="name">Algorithms</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/10/27/2019-10-27-DynamicProgramming动态规划/" class="post-meta-item leancloud_visitors" data-flag-title="2019-10-27-DynamicProgramming动态规划" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2019/10/27/2019-10-27-DynamicProgramming动态规划/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/27/2019-10-27-DynamicProgramming动态规划/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="what"><a href="#what" class="headerlink" title="what"></a>what</h1><p>动态规划是通过组合子问题的解里求解原问题，一般被用来求最优化问题</p>
-<ul>
-<li>1.刻画一个最优解的结构特征</li>
-<li>2.递归定义最优解的值</li>
-<li>3.计算最优解</li>
-<li>4.计算的信息构造最优解</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/09/21/2019-09-21-中台是什么/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
-      <meta itemprop="name" content="Zhang Zehai">
-      <meta itemprop="description" content="会做饭的厨子">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zehai'blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/09/21/2019-09-21-中台是什么/" class="post-title-link" itemprop="url">2019-09-21-中台是什么</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-09-21 09:54:06 / Modified: 10:10:36" itemprop="dateCreated datePublished" datetime="2019-09-21T09:54:06+08:00">2019-09-21</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/09/21/2019-09-21-中台是什么/" class="post-meta-item leancloud_visitors" data-flag-title="2019-09-21-中台是什么" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2019/09/21/2019-09-21-中台是什么/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/21/2019-09-21-中台是什么/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="why"><a href="#why" class="headerlink" title="why"></a>why</h1><p>公司最近上了一套中台服务，因为好奇所以查了一下资料，中台是为了提高开发效率，将各个服务中共同的组织，资源集中管理，作为一个整体服务，宏观上我们可以把淘宝客户端，盒马生鲜，饿了么看做大前端，而他们有一部分共享数据，比如用户信息，支付功能，搜索功能等</p>
-<p><img src="..\img\alibaba.jpg" alt=""></p>
-<p>又比如我们公司的电商平台，核心系统包括，ERP（企业资源计划即 <em>ERP</em> Ent<em>erp</em>rise Resource Planning），WMS（仓库管理系统Warehouse Management System）以及一套交付系统（包含购买，安装服务，维修服务，代理商管理等），他们需要共享商品信息，ERP需要用来算账，WMS需要用来发货，交付系统需要用来记录他的生命周期，就在中台配置一套信息，就可以达到三套系统都可以访问的效果。</p>
-<h1 id="what"><a href="#what" class="headerlink" title="what"></a>what</h1><p>中台也可以分类：</p>
-<ul>
-<li>业务中台（如上举例我们公司的业务）</li>
-<li>技术中台（如淘宝的中台，当然也有偏业务的部分，主要目的防止重复造轮子）</li>
-<li>数据中台（包括建模，日志分析，profile）</li>
-<li>算法中台（推荐算法，搜索算法等）</li>
-</ul>
-<h1 id="feature"><a href="#feature" class="headerlink" title="feature"></a>feature</h1><p>目前中台还是比较烧钱的吧，公司没有到达一定的规模，这个东西还是没有什么卵用，我们目前上了一套ERP，一套中台，级别在千万吧，还需要各个部门进行配合，进行系统整合（以前都是各干各的，系统间几乎没有交互，重复造轮子）。恶心的我啊，加了10117了三个月才大体上能用了</p>
-<p>不过我觉得中台的发展历史可能和服务一样，一个整体的服务臃肿，后续的中台还是会变成中心化，即一个核心业务，其他做成微服务，分布式的架构，是目前技术潮流的前进方向</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/09/14/2019-09-14-Node日志感受/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
-      <meta itemprop="name" content="Zhang Zehai">
-      <meta itemprop="description" content="会做饭的厨子">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zehai'blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/09/14/2019-09-14-Node日志感受/" class="post-title-link" itemprop="url">2019-09-14Node日志感受</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-09-14 20:33:37" itemprop="dateCreated datePublished" datetime="2019-09-14T20:33:37+08:00">2019-09-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-21 09:54:13" itemprop="dateModified" datetime="2019-09-21T09:54:13+08:00">2019-09-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index"><span itemprop="name">Node</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/09/14/2019-09-14-Node日志感受/" class="post-meta-item leancloud_visitors" data-flag-title="2019-09-14Node日志感受" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2019/09/14/2019-09-14-Node日志感受/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/14/2019-09-14-Node日志感受/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="why"><a href="#why" class="headerlink" title="why"></a>why</h1><p>日志是用来记录程序运行重要的工具</p>
-<ul>
-<li>记录请求日志，关键节点打上日志，可以追踪问题（<strong>生产</strong>）</li>
-<li>方便调试，定位故障</li>
-<li>监控应用的运行状态</li>
-</ul>
-<h1 id="what-egg-js为例"><a href="#what-egg-js为例" class="headerlink" title="what(egg.js为例)"></a>what(egg.js为例)</h1><p>日志分为：</p>
-<ul>
-<li>appLogger应用日志，也是我们自定义的日志</li>
-<li>coreLogger核心框架，插件日志</li>
-<li>errorLogger</li>
-<li>agentLogger用于监控agent日志</li>
-</ul>
-<p>日志级别：</p>
-<ul>
-<li>ctx.logger.debug()</li>
-<li>ctx.logger.info()</li>
-<li>ctx.logger.warn()</li>
-<li>ctx.logger.error()</li>
-<li>以appLogger为例，一共4*4种</li>
-</ul>
-<p>日志编码：</p>
-<ul>
-<li>默认utf-8</li>
-</ul>
-<h1 id="feature"><a href="#feature" class="headerlink" title="feature"></a>feature</h1><p>目前日志都支持切割，每天一个文件，以.log.2019-09-14为尾缀（小时切割和文件大小切割实用性不高），编写日志的时候我们也需要注意如下几点：</p>
-<ul>
-<li><p>在关键请求关键位置打好日志</p>
-</li>
-<li><p>打印日志注明这是哪个文件哪个方法处理的日志</p>
-<ul>
-<li><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">logger.debug(<span class="string">`&gt;&gt;&gt;&gt; Entering yourMethod(month = <span class="subst">$&#123;month&#125;</span>, count= <span class="subst">$&#123;count&#125;</span>");</span></span><br><span class="line"><span class="string">//通过日志 &gt;&gt;&gt;&gt; 和 &lt;&lt;&lt;&lt; 将给出函数输入和退出的信息</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>日志不能太多，一个是查问题日志太多，第二个是对硬盘写入日志也有一定性能影响（egg是写入内存，每秒保存一次硬盘）</p>
-</li>
-<li><p>合理使用try-catch来进行日志输出</p>
-</li>
-<li><p>日志写法一定要避免简洁，不要日志再抛错（正常打印参数，打印处理结果）</p>
-</li>
-<li><p>日志不能具备除了日志以外的功能</p>
-</li>
-<li><p>正确把握日志级别，info记录信息（最主要的），debug显示调试信息，warn显示警告，error保存数据库请求类型的报错</p>
-</li>
-<li><p>尽量使用ctx.logger而并非console.log，后者将会把所有日志打印在stdout中，无法关闭或打开调试信息，并且不区分级别</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1371,20 +1305,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

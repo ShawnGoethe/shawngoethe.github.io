@@ -118,17 +118,17 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">86</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">94</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">25</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">29</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">26</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">28</span></a>
 
   </li>
         <li class="menu-item menu-item-mysql">
@@ -197,6 +197,940 @@
   
   
   <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/12/16/2019-12-22-SpringBoot概要 /">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
+      <meta itemprop="name" content="Zhang Zehai">
+      <meta itemprop="description" content="会做饭的厨子">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zehai'blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/16/2019-12-22-SpringBoot概要 /" class="post-title-link" itemprop="url">2019-12-22-SpringBoot概要</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-16 20:37:30" itemprop="dateCreated datePublished" datetime="2019-12-16T20:37:30+08:00">2019-12-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-30 09:33:31" itemprop="dateModified" datetime="2020-05-30T09:33:31+08:00">2020-05-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/12/16/2019-12-22-SpringBoot概要 /" class="post-meta-item leancloud_visitors" data-flag-title="2019-12-22-SpringBoot概要" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/12/16/2019-12-22-SpringBoot概要 /#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/16/2019-12-22-SpringBoot概要 /" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>含义：spring 的简化配置版本（继承父类依赖，拥有父类的所有配置）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--你的项目pom文件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.4.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--点开spring-boot-starter-parent，文件相对位置\org\springframework\boot\spring-boot-starter-parent\2.0.4.RELEASE--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.4.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">relativePath</span>&gt;</span>../../spring-boot-dependencies<span class="tag">&lt;/<span class="name">relativePath</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>微服务</p>
+<p>AOP</p>
+<p>简化部署，可以再pom.xml中配置plugins来实现导出jar包，方便执行</p>
+<p>Features:</p>
+<ul>
+<li>starter</li>
+<li>入口类标记@SpringBootApplication</li>
+<li>SpringBoot配置类@SpringBootConfiguration</li>
+<li>配置类@Configuration</li>
+<li>开启自动配置@EnableAutoConfiguration</li>
+<li>自动配置包@AutoConfigurationPackage</li>
+<li>导入组件@Import</li>
+</ul>
+<p>疑惑</p>
+<ul>
+<li>为什么使用注解</li>
+<li>为什么需要AOP</li>
+<li>为什么选择springboot</li>
+<li></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/12/16/2019-12-22-zookeeper概要/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
+      <meta itemprop="name" content="Zhang Zehai">
+      <meta itemprop="description" content="会做饭的厨子">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zehai'blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/16/2019-12-22-zookeeper概要/" class="post-title-link" itemprop="url">2019-12-22-zookeeper概要</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-16 20:37:30" itemprop="dateCreated datePublished" datetime="2019-12-16T20:37:30+08:00">2019-12-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-30 09:33:31" itemprop="dateModified" datetime="2020-05-30T09:33:31+08:00">2020-05-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/zookeeper/" itemprop="url" rel="index"><span itemprop="name">zookeeper</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/12/16/2019-12-22-zookeeper概要/" class="post-meta-item leancloud_visitors" data-flag-title="2019-12-22-zookeeper概要" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/12/16/2019-12-22-zookeeper概要/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/16/2019-12-22-zookeeper概要/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>含义：动物管理员，管理节点</p>
+<p>作用：开源的分布式应用程序协调服务（简单来说，就是一个抽象出来，专门管理各个服务的管理员，发现服务，注册服务，以实现分布式应用的联合工作）</p>
+<p>feature</p>
+<ul>
+<li>树状目录结构，节点称作znode</li>
+<li>持久节点（客户端断开仍然存在）</li>
+<li>临时节点（断开消失）</li>
+<li>节点监听（通过get exists,getchildren来实行监听）</li>
+</ul>
+<p>应用：</p>
+<ul>
+<li>分布式锁</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>问题场景</td>
+<td>我们有一个服务C，将A系统的订单数据，发送到B系统进行财务处理，但这个服务部C署了三个服务器来进行并发，其中有些数据在传送处理时会new一个objectid，如果不添加锁，该数据可能被两个服务同时调起，在B服务中生成两条记录</td>
+</tr>
+<tr>
+<td>解决方案</td>
+<td>我们同步数据时候，需要给同一个数据加锁，防止该数据同时被两个服务调起，服务访问某条订单数据时候，需要先获得锁，操作完后释放锁</td>
+</tr>
+<tr>
+<td>实现方式</td>
+<td>每个服务连接一个znode的下属有序临时节点，并监听上个节点的变化，编号最小的临时节点获得锁，操作资源，来实现</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>服务注册和发现</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>问题场景</td>
+<td>我们同步数据的服务C（上个表格中描述）,可能是部署在一个机器上的多进程，也可能是部署在多个物理ip上的服务，他是动态变化的，如果没有zookeeper类的软件，可能我每改一次ip，都需要重启一下服务，服务宕机了，也要改ip（不然404）</td>
+</tr>
+<tr>
+<td>解决方案</td>
+<td>我们需要有个服务来管理应用状态，知道服务的运行状态，这样，当其他服务调起这个服务的时候，才能通过zookeeper提供的地址进行同行</td>
+</tr>
+<tr>
+<td>实现方式</td>
+<td>服务启动会注册到zookeeper，并保持心跳，其他服务想要调用某服务的时候，询问zookeeper拿到地址，然后发送请求报文（例如RPC）</td>
+</tr>
+<tr>
+<td></td>
+<td>1.每个应用创建一个持久节点，每个服务在持久节点下建立临时节点，不同应用间会有监听，A服务如果变动，B服务会收到订阅</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/12/15/2019-12-15-SpringBootApplication/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
+      <meta itemprop="name" content="Zhang Zehai">
+      <meta itemprop="description" content="会做饭的厨子">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zehai'blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/15/2019-12-15-SpringBootApplication/" class="post-title-link" itemprop="url">2019-12-15-@SpringBootApplication</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-15 23:13:51" itemprop="dateCreated datePublished" datetime="2019-12-15T23:13:51+08:00">2019-12-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-30 09:33:31" itemprop="dateModified" datetime="2020-05-30T09:33:31+08:00">2020-05-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/12/15/2019-12-15-SpringBootApplication/" class="post-meta-item leancloud_visitors" data-flag-title="2019-12-15-@SpringBootApplication" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/12/15/2019-12-15-SpringBootApplication/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/15/2019-12-15-SpringBootApplication/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="启动类"><a href="#启动类" class="headerlink" title="启动类"></a>启动类</h1><p>我们可以见到最简单的springboot的application.java文件如下<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringTestApplication</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(SpringTestApplication.class, args);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>实际上，SpringApplication的run方法时首先会创建一个SpringApplication类的对象，利用构造方法创建SpringApplication对象时会调用initialize方法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ConfigurableApplicationContext <span class="title">run</span><span class="params">(Object source, String... args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> run(<span class="keyword">new</span> Object[] &#123; source &#125;, args);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ConfigurableApplicationContext <span class="title">run</span><span class="params">(Object[] sources, String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> SpringApplication(sources).run(args);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">SpringApplication</span><span class="params">(Object... sources)</span> </span>&#123;</span><br><span class="line">		initialize(sources);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>其中initialize方法如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">`<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initialize</span><span class="params">(Object[] sources)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 在sources不为空时，保存配置类</span></span><br><span class="line">    <span class="keyword">if</span> (sources != <span class="keyword">null</span> &amp;&amp; sources.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.sources.addAll(Arrays.asList(sources));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 判断是否为web应用</span></span><br><span class="line">    <span class="keyword">this</span>.webEnvironment = deduceWebEnvironment();</span><br><span class="line">    <span class="comment">// 获取并保存容器初始化类，通常在web应用容器初始化使用</span></span><br><span class="line">    <span class="comment">// 利用loadFactoryNames方法从路径MEAT-INF/spring.factories中找到所有的ApplicationContextInitializer</span></span><br><span class="line">    setInitializers((Collection) getSpringFactoriesInstances(</span><br><span class="line">        ApplicationContextInitializer.class));</span><br><span class="line">    <span class="comment">// 获取并保存监听器</span></span><br><span class="line">    <span class="comment">// 利用loadFactoryNames方法从路径MEAT-INF/spring.factories中找到所有的ApplicationListener</span></span><br><span class="line">    setListeners((Collection) getSpringFactoriesInstances(ApplicationListener.class));</span><br><span class="line">    <span class="comment">// 从堆栈信息获取包含main方法的主配置类</span></span><br><span class="line">    <span class="keyword">this</span>.mainApplicationClass = deduceMainApplicationClass();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实例化后调用run：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ConfigurableApplicationContext <span class="title">run</span><span class="params">(String... args)</span> </span>&#123;</span><br><span class="line">    StopWatch stopWatch = <span class="keyword">new</span> StopWatch();</span><br><span class="line">    stopWatch.start();</span><br><span class="line">    ConfigurableApplicationContext context = <span class="keyword">null</span>;</span><br><span class="line">    FailureAnalyzers analyzers = <span class="keyword">null</span>;</span><br><span class="line">    <span class="comment">// 配置属性</span></span><br><span class="line">    configureHeadlessProperty();</span><br><span class="line">    <span class="comment">// 获取监听器</span></span><br><span class="line">    <span class="comment">// 利用loadFactoryNames方法从路径MEAT-INF/spring.factories中找到所有的SpringApplicationRunListener</span></span><br><span class="line">    SpringApplicationRunListeners listeners = getRunListeners(args);</span><br><span class="line">    <span class="comment">// 启动监听</span></span><br><span class="line">    <span class="comment">// 调用每个SpringApplicationRunListener的starting方法</span></span><br><span class="line">    listeners.starting();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 将参数封装到ApplicationArguments对象中</span></span><br><span class="line">        ApplicationArguments applicationArguments = <span class="keyword">new</span> DefaultApplicationArguments(</span><br><span class="line">            args);</span><br><span class="line">        <span class="comment">// 准备环境</span></span><br><span class="line">        <span class="comment">// 触发监听事件——调用每个SpringApplicationRunListener的environmentPrepared方法</span></span><br><span class="line">        ConfigurableEnvironment environment = prepareEnvironment(listeners,</span><br><span class="line">            applicationArguments);</span><br><span class="line">        <span class="comment">// 从环境中取出Banner并打印</span></span><br><span class="line">        Banner printedBanner = printBanner(environment);</span><br><span class="line">        <span class="comment">// 依据是否为web环境创建web容器或者普通的IOC容器</span></span><br><span class="line">        context = createApplicationContext();</span><br><span class="line">        analyzers = <span class="keyword">new</span> FailureAnalyzers(context);</span><br><span class="line">        <span class="comment">// 准备上下文</span></span><br><span class="line">        <span class="comment">// 1.将environment保存到容器中</span></span><br><span class="line">        <span class="comment">// 2.触发监听事件——调用每个SpringApplicationRunListeners的contextPrepared方法</span></span><br><span class="line">        <span class="comment">// 3.调用ConfigurableListableBeanFactory的registerSingleton方法向容器中注入applicationArguments与printedBanner</span></span><br><span class="line">        <span class="comment">// 4.触发监听事件——调用每个SpringApplicationRunListeners的contextLoaded方法</span></span><br><span class="line">        prepareContext(context, environment, listeners, applicationArguments,</span><br><span class="line">            printedBanner);</span><br><span class="line">        <span class="comment">// 刷新容器，完成组件的扫描，创建，加载等</span></span><br><span class="line">        refreshContext(context);</span><br><span class="line">        afterRefresh(context, applicationArguments);</span><br><span class="line">        <span class="comment">// 触发监听事件——调用每个SpringApplicationRunListener的finished方法</span></span><br><span class="line">        listeners.finished(context, <span class="keyword">null</span>);</span><br><span class="line">        stopWatch.stop();</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.logStartupInfo) &#123;</span><br><span class="line">            <span class="keyword">new</span> StartupInfoLogger(<span class="keyword">this</span>.mainApplicationClass)</span><br><span class="line">                .logStarted(getApplicationLog(), stopWatch);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 返回容器</span></span><br><span class="line">        <span class="keyword">return</span> context;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> (Throwable ex) &#123;</span><br><span class="line">        handleRunFailure(context, listeners, analyzers, ex);</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(ex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为了建立调用逻辑画了一张图，比较粗糙</p>
+<p><img src="..\img\springbootApplication.png" alt=""></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>SpringApplication.run一共做了两件事</p>
+<ul>
+<li>创建SpringApplication对象；在对象初始化时保存事件监听器，容器初始化类以及判断是否为web应用，保存包含main方法的主配置类。</li>
+<li>调用run方法；准备spring的上下文，完成容器的初始化，创建，加载等。会在不同的时机触发监听器的不同事件</li>
+</ul>
+<p><a href="https://www.cnblogs.com/davidwang456/p/5846513.html" target="_blank" rel="noopener">https://www.cnblogs.com/davidwang456/p/5846513.html</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/12/14/2019-12-14-分布式系统/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
+      <meta itemprop="name" content="Zhang Zehai">
+      <meta itemprop="description" content="会做饭的厨子">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zehai'blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/14/2019-12-14-分布式系统/" class="post-title-link" itemprop="url">2019-12-14-分布式系统</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-14 15:41:03" itemprop="dateCreated datePublished" datetime="2019-12-14T15:41:03+08:00">2019-12-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-30 09:33:31" itemprop="dateModified" datetime="2020-05-30T09:33:31+08:00">2020-05-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Distribution/" itemprop="url" rel="index"><span itemprop="name">Distribution</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/12/14/2019-12-14-分布式系统/" class="post-meta-item leancloud_visitors" data-flag-title="2019-12-14-分布式系统" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/12/14/2019-12-14-分布式系统/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/14/2019-12-14-分布式系统/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[TOC]</p>
+<h1 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h1><p>原因：<br>目的：</p>
+<h2 id="数据库唯一索引"><a href="#数据库唯一索引" class="headerlink" title="数据库唯一索引"></a>数据库唯一索引</h2><h2 id="redis-的SETNX"><a href="#redis-的SETNX" class="headerlink" title="redis 的SETNX"></a>redis 的SETNX</h2><h2 id="redis的RedLock"><a href="#redis的RedLock" class="headerlink" title="redis的RedLock"></a>redis的RedLock</h2><h1 id="分布式事务"><a href="#分布式事务" class="headerlink" title="分布式事务"></a>分布式事务</h1><h1 id="CAP"><a href="#CAP" class="headerlink" title="CAP"></a>CAP</h1><h1 id="BASE"><a href="#BASE" class="headerlink" title="BASE"></a>BASE</h1><h1 id="Paxos"><a href="#Paxos" class="headerlink" title="Paxos"></a>Paxos</h1><h1 id="Raft"><a href="#Raft" class="headerlink" title="Raft"></a>Raft</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/10/27/2019-10-27-DynamicProgramming动态规划/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
+      <meta itemprop="name" content="Zhang Zehai">
+      <meta itemprop="description" content="会做饭的厨子">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zehai'blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/27/2019-10-27-DynamicProgramming动态规划/" class="post-title-link" itemprop="url">2019-10-27-DynamicProgramming动态规划</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-27 12:01:05" itemprop="dateCreated datePublished" datetime="2019-10-27T12:01:05+08:00">2019-10-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-30 09:33:31" itemprop="dateModified" datetime="2020-05-30T09:33:31+08:00">2020-05-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithms/" itemprop="url" rel="index"><span itemprop="name">Algorithms</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/10/27/2019-10-27-DynamicProgramming动态规划/" class="post-meta-item leancloud_visitors" data-flag-title="2019-10-27-DynamicProgramming动态规划" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/10/27/2019-10-27-DynamicProgramming动态规划/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/27/2019-10-27-DynamicProgramming动态规划/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="what"><a href="#what" class="headerlink" title="what"></a>what</h1><p>动态规划是通过组合子问题的解里求解原问题，一般被用来求最优化问题</p>
+<ul>
+<li>1.刻画一个最优解的结构特征</li>
+<li>2.递归定义最优解的值</li>
+<li>3.计算最优解</li>
+<li>4.计算的信息构造最优解</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/09/21/2019-09-21-中台是什么/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
+      <meta itemprop="name" content="Zhang Zehai">
+      <meta itemprop="description" content="会做饭的厨子">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zehai'blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/09/21/2019-09-21-中台是什么/" class="post-title-link" itemprop="url">2019-09-21-中台是什么</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-09-21 09:54:06" itemprop="dateCreated datePublished" datetime="2019-09-21T09:54:06+08:00">2019-09-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-30 09:33:31" itemprop="dateModified" datetime="2020-05-30T09:33:31+08:00">2020-05-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/09/21/2019-09-21-中台是什么/" class="post-meta-item leancloud_visitors" data-flag-title="2019-09-21-中台是什么" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/09/21/2019-09-21-中台是什么/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/21/2019-09-21-中台是什么/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="why"><a href="#why" class="headerlink" title="why"></a>why</h1><p>公司最近上了一套中台服务，因为好奇所以查了一下资料，中台是为了提高开发效率，将各个服务中共同的组织，资源集中管理，作为一个整体服务，宏观上我们可以把淘宝客户端，盒马生鲜，饿了么看做大前端，而他们有一部分共享数据，比如用户信息，支付功能，搜索功能等</p>
+<p><img src="..\img\alibaba.jpg" alt=""></p>
+<p>又比如我们公司的电商平台，核心系统包括，ERP（企业资源计划即 <em>ERP</em> Ent<em>erp</em>rise Resource Planning），WMS（仓库管理系统Warehouse Management System）以及一套交付系统（包含购买，安装服务，维修服务，代理商管理等），他们需要共享商品信息，ERP需要用来算账，WMS需要用来发货，交付系统需要用来记录他的生命周期，就在中台配置一套信息，就可以达到三套系统都可以访问的效果。</p>
+<h1 id="what"><a href="#what" class="headerlink" title="what"></a>what</h1><p>中台也可以分类：</p>
+<ul>
+<li>业务中台（如上举例我们公司的业务）</li>
+<li>技术中台（如淘宝的中台，当然也有偏业务的部分，主要目的防止重复造轮子）</li>
+<li>数据中台（包括建模，日志分析，profile）</li>
+<li>算法中台（推荐算法，搜索算法等）</li>
+</ul>
+<h1 id="feature"><a href="#feature" class="headerlink" title="feature"></a>feature</h1><p>目前中台还是比较烧钱的吧，公司没有到达一定的规模，这个东西还是没有什么卵用，我们目前上了一套ERP，一套中台，级别在千万吧，还需要各个部门进行配合，进行系统整合（以前都是各干各的，系统间几乎没有交互，重复造轮子）。恶心的我啊，加了10117了三个月才大体上能用了</p>
+<p>不过我觉得中台的发展历史可能和服务一样，一个整体的服务臃肿，后续的中台还是会变成中心化，即一个核心业务，其他做成微服务，分布式的架构，是目前技术潮流的前进方向</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/09/14/2019-09-14-Node日志感受/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
+      <meta itemprop="name" content="Zhang Zehai">
+      <meta itemprop="description" content="会做饭的厨子">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zehai'blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/09/14/2019-09-14-Node日志感受/" class="post-title-link" itemprop="url">2019-09-14Node日志感受</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-09-14 20:33:37" itemprop="dateCreated datePublished" datetime="2019-09-14T20:33:37+08:00">2019-09-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-30 09:33:31" itemprop="dateModified" datetime="2020-05-30T09:33:31+08:00">2020-05-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Node/" itemprop="url" rel="index"><span itemprop="name">Node</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/09/14/2019-09-14-Node日志感受/" class="post-meta-item leancloud_visitors" data-flag-title="2019-09-14Node日志感受" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/09/14/2019-09-14-Node日志感受/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/14/2019-09-14-Node日志感受/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="why"><a href="#why" class="headerlink" title="why"></a>why</h1><p>日志是用来记录程序运行重要的工具</p>
+<ul>
+<li>记录请求日志，关键节点打上日志，可以追踪问题（<strong>生产</strong>）</li>
+<li>方便调试，定位故障</li>
+<li>监控应用的运行状态</li>
+</ul>
+<h1 id="what-egg-js为例"><a href="#what-egg-js为例" class="headerlink" title="what(egg.js为例)"></a>what(egg.js为例)</h1><p>日志分为：</p>
+<ul>
+<li>appLogger应用日志，也是我们自定义的日志</li>
+<li>coreLogger核心框架，插件日志</li>
+<li>errorLogger</li>
+<li>agentLogger用于监控agent日志</li>
+</ul>
+<p>日志级别：</p>
+<ul>
+<li>ctx.logger.debug()</li>
+<li>ctx.logger.info()</li>
+<li>ctx.logger.warn()</li>
+<li>ctx.logger.error()</li>
+<li>以appLogger为例，一共4*4种</li>
+</ul>
+<p>日志编码：</p>
+<ul>
+<li>默认utf-8</li>
+</ul>
+<h1 id="feature"><a href="#feature" class="headerlink" title="feature"></a>feature</h1><p>目前日志都支持切割，每天一个文件，以.log.2019-09-14为尾缀（小时切割和文件大小切割实用性不高），编写日志的时候我们也需要注意如下几点：</p>
+<ul>
+<li><p>在关键请求关键位置打好日志</p>
+</li>
+<li><p>打印日志注明这是哪个文件哪个方法处理的日志</p>
+<ul>
+<li><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">logger.debug(<span class="string">`&gt;&gt;&gt;&gt; Entering yourMethod(month = <span class="subst">$&#123;month&#125;</span>, count= <span class="subst">$&#123;count&#125;</span>");</span></span><br><span class="line"><span class="string">//通过日志 &gt;&gt;&gt;&gt; 和 &lt;&lt;&lt;&lt; 将给出函数输入和退出的信息</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>日志不能太多，一个是查问题日志太多，第二个是对硬盘写入日志也有一定性能影响（egg是写入内存，每秒保存一次硬盘）</p>
+</li>
+<li><p>合理使用try-catch来进行日志输出</p>
+</li>
+<li><p>日志写法一定要避免简洁，不要日志再抛错（正常打印参数，打印处理结果）</p>
+</li>
+<li><p>日志不能具备除了日志以外的功能</p>
+</li>
+<li><p>正确把握日志级别，info记录信息（最主要的），debug显示调试信息，warn显示警告，error保存数据库请求类型的报错</p>
+</li>
+<li><p>尽量使用ctx.logger而并非console.log，后者将会把所有日志打印在stdout中，无法关闭或打开调试信息，并且不区分级别</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/05/06/2019-05-05-绍兴游记/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
+      <meta itemprop="name" content="Zhang Zehai">
+      <meta itemprop="description" content="会做饭的厨子">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zehai'blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/05/06/2019-05-05-绍兴游记/" class="post-title-link" itemprop="url">绍兴游记</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-05-06 14:09:05" itemprop="dateCreated datePublished" datetime="2019-05-06T14:09:05+08:00">2019-05-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-30 09:34:03" itemprop="dateModified" datetime="2020-05-30T09:34:03+08:00">2020-05-30</time>
+              </span>
+
+          
+            <span id="/2019/05/06/2019-05-05-绍兴游记/" class="post-meta-item leancloud_visitors" data-flag-title="绍兴游记" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/05/06/2019-05-05-绍兴游记/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/05/06/2019-05-05-绍兴游记/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>5月1日搭车去了绍兴，一个是自己毕业后其实既没有毕业旅行，也没有去哪里玩儿，所以想补偿自己一下，第二个是我表姐给我买了票了，想着还是去吧。</p>
+<p><img src="..\img\IMG_20190501_111955启程.jpg" alt=""></p>
+<p>因为最后一个工作日加了个班，然后又起得很早，读着东野圭吾的《嫌疑人X的献身》，中午饿了就在高铁上买了15元的盒饭，拿着kindle强行盖了会儿，，锁屏突然推送了广告，这几个字，读了好几遍，好是喜欢。耳机刚好播放到最近很是喜欢的《<a href="https://music.163.com/song?id=1341964346&amp;userid=248655362" target="_blank" rel="noopener">你的酒馆对我打了样</a>》，我调整了椅子，时速307km逃离着这座有你的城市。</p>
+<p>杭州高楼鳞次栉比，穿过一栋栋高楼就来到了绍兴，这个城市不是很繁华，倒也是一个保留的很好的江南古镇，我很喜欢这里，火车站，背着包，司机师傅操着一口流畅的普通话礼貌的问着我去哪儿，一边介绍着风景名胜，满满的都是对这个城市的热爱，有风景名胜兰亭，壮阔的东湖，一个慢节奏的小城市，除却了对金钱的渴望，连揽客都变得那么悠闲。</p>
+<p><img src="..\img\IMG_20190501_202914.jpg" alt="">吃过饭，和侄子一起去了仓桥直街，其实可以理解为低配版的南锣鼓巷，人不算特别多吧，但是风景却很好的保留了江南的风味，一轮明月（非p30pro），以及灯光的烘托，让江南的夜晚，似乎比白天更加的夺目。陈旧的街巷保留了最初的最原始的石板街，街边的店家还是很古旧的撑着旗帜，还是过去那种一个很大的门（2m高*7个木板）还有很多过去的宣传标语，当然也有很多小吃。</p>
+<p><img src="..\img\IMG_20190501_203923_Bokeh.jpg" alt=""></p>
+<p>第二天的行程主要就是鲁迅故居了，其实并没有什么让我眼前一亮的地方，因为这里的人实在太多了，我早上九点半抵达景点，到11点才排队进入了鲁迅祖居，倒也很是沮丧，而且祖居里其实并没有什么值得参考的，游人们看长安花一样，参观者一个一个的房间。然后我又排队了40分钟进入了百草园，想一看鲁迅童年最快乐的地方，但却也什么也没有看到，一个不是很好看的花园，料理的和我爷爷的菜地一样，不过或许树人童年就是在这么一块地方进行玩耍的，很多游人围着百草园的一块大石头上合影留恋，排着队，各种姿势摆拍，令我觉得很是不舒服（我也没有拍到）。</p>
+<p><img src="..\img\IMG_20190502_110050_Bokeh.jpg" alt="鲁迅祖居"></p>
+<p><img src="..\img\IMG_20190502_115854_Bokeh.jpg" alt="鲁迅祖居"></p>
+<p><img src="..\img\IMG_20190502_120925.jpg" alt="百草园一角"></p>
+<p>倒也怎么看，鲁迅的童年应该也很是无聊，强行找着自己的乐子吧，后来排了30分钟的队伍去了三味书屋，其实我当时的心情是抗拒的，但还是忍着烈日，走上了不归的队伍，书屋的景点其实很小，一个小的教室，两边是家长的坐席，中间是学生的座位，图片可以看到鲁迅其实是坐在讲台左边的，看来他小时候也是个先生特别关照的对象鸭。</p>
+<p><img src="..\img\IMG_20190502_130655.jpg" alt="三味书屋"></p>
+<p>其实每逛完一个景点都是非常长的商业街，路的两边充斥着特产豆腐，黄酒产品，虽然我不是很反感这种景点恰饭情景，但是满街飘着臭豆腐的味道，回荡在鲁迅故居的上空，但多少也是有点违和，第二天的行程是安昌古镇，其实也没有什么特别的。</p>
+<p><img src="..\img\IMG_20190503_113906_Bokeh.jpg" alt=""></p>
+<p><img src="..\img\IMG_20190503_122238_002.jpg" alt=""></p>
+<p><img src="..\img\IMG_20190503_122634.jpg" alt="IMG_20190503_122634"></p>
+<p>历史的前轮碾压而过，很多东西都因为商业化而丢失了曾经的自己，不过总体来讲我还是比较喜欢吃过午饭，在江南的水边走着，遇到一位94岁的奶奶晒太阳，打了个招呼，他居住在这里三十年了，每次节假日，这里都会来很多人，之前就在这河里洗衣服，打水，后来腿脚不方便了，就搬把凳子坐在这里，听着繁华的声音，晒着太阳，看着船夫送走一个又一个人，这里的瓦年龄都很大，之前屋子的瓦还坏过一个，他折腾了好久才暂时不滴水了，她涛涛不觉的讲着，沉醉在这个小镇带给他的快乐和烦恼中</p>
+<p>两天的行程不是很满，不是很累，也不是很轻松（到哪儿，哪儿都排队），回去没有抢到票，从绍兴一直站着回了北京，小说确实也没有读的下去，我看着窗外的风景，思念着一个人，认识这么久，我还没和你一起旅游过</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/04/24/2019-04-24-Nodejs12/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -228,7 +1162,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-04-26 22:09:09" itemprop="dateModified" datetime="2019-04-26T22:09:09+08:00">2019-04-26</time>
+                <time title="Modified: 2020-05-30 09:33:31" itemprop="dateModified" datetime="2020-05-30T09:33:31+08:00">2020-05-30</time>
               </span>
 
           
@@ -337,10 +1271,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-04-20 23:23:38 / Modified: 23:40:28" itemprop="dateCreated datePublished" datetime="2019-04-20T23:23:38+08:00">2019-04-20</time>
+              <time title="Created: 2019-04-20 23:23:38" itemprop="dateCreated datePublished" datetime="2019-04-20T23:23:38+08:00">2019-04-20</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-30 09:33:31" itemprop="dateModified" datetime="2020-05-30T09:33:31+08:00">2020-05-30</time>
+              </span>
 
           
             <span id="/2019/04/20/2019-04-20-rentingHouse/" class="post-meta-item leancloud_visitors" data-flag-title="2019-04-20-rentingHouse" title="Views">
@@ -422,797 +1362,11 @@
   
   
 
-        
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/04/17/2019-04-17-日记/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
-      <meta itemprop="name" content="Zhang Zehai">
-      <meta itemprop="description" content="会做饭的厨子">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zehai'blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/17/2019-04-17-日记/" class="post-title-link" itemprop="url">2019-04-17-日记</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-04-17 19:11:13" itemprop="dateCreated datePublished" datetime="2019-04-17T19:11:13+08:00">2019-04-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-04-18 21:19:51" itemprop="dateModified" datetime="2019-04-18T21:19:51+08:00">2019-04-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index"><span itemprop="name">life</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/04/17/2019-04-17-日记/" class="post-meta-item leancloud_visitors" data-flag-title="2019-04-17-日记" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2019/04/17/2019-04-17-日记/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/04/17/2019-04-17-日记/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>经历了连续9*13小时的工作后，我终于得到了一天的调休计划，昨晚十一点半打车从五棵松到家</p>
-<p><img src="../img/发票.jpg" alt=""></p>
-<p>洗了个热水澡，关了手机闹铃，打开了Alexa的环境噪音，难的踏实的进入了梦中。</p>
-<p>但是！！</p>
-<p>我Alexa的闹钟忘记关了，七点被吵醒后一直没有睡着，所以起床热了杯牛奶，弄了张煎饼，涂了点番茄酱就凑合吃了，后来外出和朋友聊了会儿天，倒确实点出了一些目前存在的问题</p>
-<ul>
-<li>一个好的技术不仅要知其然，更要知其所以然，多挖掘他背后的源码，去思考如何实现，这样才能在高并发时，将200ms优化到100ms，才是一个高级程序员应该具备的素质之一</li>
-<li>Node学习分为三年，第一年知其语法，会写应用，第二年知其框架，高级开发，第三年，读其源码，知其原理</li>
-<li>多用语言去写一些工具类，多去学习和参考优质轮子，而不是写一些玩具，别人都写烂的东西</li>
-<li>（重要的应该就这么多了）</li>
-</ul>
-<p>朋友的话很对，我也进行了思考，自己在JS的道路上，摸着黑走路，对于源码其实要读，但是之前打开看过一眼就一脸懵逼的状态，所以还是需要有时间学习一下优质的GitHub，撕开一个口子，然后进入到正轨，自己去多写一些方法区调用，然后一点点去琢磨，他的实现过程。</p>
-<p><img src="../img/purjoy.jpg" alt=""></p>
-<p>4月底的计划就是</p>
-<ul>
-<li>尽量换一份工作，受不了8117，薪资还不如麦当劳的临时工</li>
-<li>自如租约到期了，搬家到朱辛庄或者霍营</li>
-<li>没换工作的话，买一本书通勤看会儿，换工作的话，抽个零碎的时间读，顺便整理笔记，更博（暂定这个月读一下v8的gc）</li>
-<li>五一出去旅游，暂时想去杭州看看</li>
-<li>买点竹筒，想做竹筒饭</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/04/13/2019-04-13-暂停更新通告/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
-      <meta itemprop="name" content="Zhang Zehai">
-      <meta itemprop="description" content="会做饭的厨子">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zehai'blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/13/2019-04-13-暂停更新通告/" class="post-title-link" itemprop="url">暂停更新通告[作废]</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-04-13 22:03:36" itemprop="dateCreated datePublished" datetime="2019-04-13T22:03:36+08:00">2019-04-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-04-18 21:20:31" itemprop="dateModified" datetime="2019-04-18T21:20:31+08:00">2019-04-18</time>
-              </span>
-
-          
-            <span id="/2019/04/13/2019-04-13-暂停更新通告/" class="post-meta-item leancloud_visitors" data-flag-title="暂停更新通告[作废]" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2019/04/13/2019-04-13-暂停更新通告/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/04/13/2019-04-13-暂停更新通告/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>自今日起，博客开始停更</p>
-<h1 id="996-icu"><a href="#996-icu" class="headerlink" title="996.icu"></a>996.icu</h1><p>年后开始，互联网似乎过得都不好，从七陌被裁（也有个人原因吧），到被航天二院，知网，中电科因为学历卡住入职（BOSS直聘，面试完了，技术找人事审核不通过），后来遇到了一系列傲慢的中科软系列面试，无限加班的创业公司，还有那种以培训机构为目标招人的小公司。最终未能收获一个满意的offer，最终舔狗选择了一家说是不加班的某所，然，现在才发现，实在太忙，包括现在也刚刚到家，工作也没有pc，没有网络，所以也很不方便随时学习，可能有一些手写笔记，但经历有限，所以最近会停止更新</p>
-<p>年后996冲上了榜首，让世界都在反思为什么中国的加班为什么如此疯狂，但话题热度很快下降，因为没有人会去放下手中的工作去抵制，毕竟生活总要继续下去</p>
-<p>生活总是这样，起起落落落</p>
-<p>努力不一定有回报，但不努力一定很（mei）舒（hui）服(bao)</p>
-<p>晚安~hexo</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/04/09/2019-04-09-PermutationSequence/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
-      <meta itemprop="name" content="Zhang Zehai">
-      <meta itemprop="description" content="会做饭的厨子">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zehai'blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/09/2019-04-09-PermutationSequence/" class="post-title-link" itemprop="url">PermutationSequence-60</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-04-09 21:09:28 / Modified: 21:29:57" itemprop="dateCreated datePublished" datetime="2019-04-09T21:09:28+08:00">2019-04-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/04/09/2019-04-09-PermutationSequence/" class="post-meta-item leancloud_visitors" data-flag-title="PermutationSequence-60" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2019/04/09/2019-04-09-PermutationSequence/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/04/09/2019-04-09-PermutationSequence/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>The set <code>[1,2,3,...,*n*]</code> contains a total of <em>n</em>! unique permutations.</p>
-<p>By listing and labeling all of the permutations in order, we get the following sequence for <em>n</em> = 3:</p>
-<ol>
-<li><code>&quot;123&quot;</code></li>
-<li><code>&quot;132&quot;</code></li>
-<li><code>&quot;213&quot;</code></li>
-<li><code>&quot;231&quot;</code></li>
-<li><code>&quot;312&quot;</code></li>
-<li><code>&quot;321&quot;</code></li>
-</ol>
-<p>Given <em>n</em> and <em>k</em>, return the <em>k</em>th permutation sequence.</p>
-<p><strong>Note:</strong></p>
-<ul>
-<li>Given <em>n</em> will be between 1 and 9 inclusive.</li>
-<li>Given <em>k</em> will be between 1 and <em>n</em>! inclusive.</li>
-</ul>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: n = 3, k = 3</span><br><span class="line">Output: &quot;213&quot;</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: n = 4, k = 9</span><br><span class="line">Output: &quot;2314&quot;</span><br></pre></td></tr></table></figure>
-<h1 id="key"><a href="#key" class="headerlink" title="key"></a>key</h1><h1 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h1><h1 id="perfect"><a href="#perfect" class="headerlink" title="perfect"></a>perfect</h1>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/04/06/2019-04-06-https与http/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
-      <meta itemprop="name" content="Zhang Zehai">
-      <meta itemprop="description" content="会做饭的厨子">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zehai'blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/06/2019-04-06-https与http/" class="post-title-link" itemprop="url">https与http</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-04-06 22:41:27 / Modified: 22:43:42" itemprop="dateCreated datePublished" datetime="2019-04-06T22:41:27+08:00">2019-04-06</time>
-            </span>
-
-          
-            <span id="/2019/04/06/2019-04-06-https与http/" class="post-meta-item leancloud_visitors" data-flag-title="https与http" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2019/04/06/2019-04-06-https与http/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/04/06/2019-04-06-https与http/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="what"><a href="#what" class="headerlink" title="what"></a>what</h1><h1 id="advantage"><a href="#advantage" class="headerlink" title="advantage"></a>advantage</h1><p>客户端在使用HTTPS方式与Web服务器通信时有以下几个步骤，如图所示。</p>
-<p>　　（1）客户使用https的URL访问Web服务器，要求与Web服务器建立SSL连接。</p>
-<p>　　（2）Web服务器收到客户端请求后，会将网站的证书信息（证书中包含公钥）传送一份给客户端。</p>
-<p>　　（3）客户端的浏览器与Web服务器开始协商SSL连接的安全等级，也就是信息加密的等级。</p>
-<p>　　（4）客户端的浏览器根据双方同意的安全等级，建立会话密钥，然后利用网站的公钥将会话密钥加密，并传送给网站。</p>
-<p>　　（5）Web服务器利用自己的私钥解密出会话密钥。</p>
-<p>　　（6）Web服务器利用会话密钥加密与客户端之间的通信。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/04/06/2019-04-06-SpiralMatrix2/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
-      <meta itemprop="name" content="Zhang Zehai">
-      <meta itemprop="description" content="会做饭的厨子">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zehai'blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/06/2019-04-06-SpiralMatrix2/" class="post-title-link" itemprop="url">SpiralMatrix2-59</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-04-06 16:16:18" itemprop="dateCreated datePublished" datetime="2019-04-06T16:16:18+08:00">2019-04-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-04-09 21:11:01" itemprop="dateModified" datetime="2019-04-09T21:11:01+08:00">2019-04-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/04/06/2019-04-06-SpiralMatrix2/" class="post-meta-item leancloud_visitors" data-flag-title="SpiralMatrix2-59" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2019/04/06/2019-04-06-SpiralMatrix2/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/04/06/2019-04-06-SpiralMatrix2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="problem"><a href="#problem" class="headerlink" title="problem"></a>problem</h1><blockquote>
-<p>Given a positive integer <em>n</em>, generate a square matrix filled with elements from 1 to <em>n</em>2 in spiral order.</p>
-<p><strong>Example:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;Input: 3</span><br><span class="line">&gt;Output:</span><br><span class="line">&gt;[</span><br><span class="line">&gt; [ 1, 2, 3 ],</span><br><span class="line">&gt; [ 8, 9, 4 ],</span><br><span class="line">&gt; [ 7, 6, 5 ]</span><br><span class="line">&gt;]</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h1 id="key"><a href="#key" class="headerlink" title="key"></a>key</h1><p>虽然标了medium，但是确实很简单，形成一个口字型闭环，一层层去处理就好了，然后再主要就是控制口字循环时候的边界，以及最后一个元素的判断</p>
-<h1 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public int[][] generateMatrix(int n) &#123;</span><br><span class="line">		int [][]res = new int[n][n];</span><br><span class="line">        int left = 0;</span><br><span class="line">        int right = n-1;</span><br><span class="line">        int top = 0;</span><br><span class="line">        int bottom = n-1;</span><br><span class="line">        int index = 1;</span><br><span class="line">        int quit = n*n;</span><br><span class="line">        while(index&lt;=quit)&#123;</span><br><span class="line">            for(int i=left;i&lt;=right;i++) &#123;</span><br><span class="line">            	res[top][i] = (index++);</span><br><span class="line">            &#125;</span><br><span class="line">            top++;</span><br><span class="line">            for(int i=top;i&lt;=bottom;i++)&#123;</span><br><span class="line">            	res[i][right] = (index++);</span><br><span class="line">                &#125;</span><br><span class="line">            right--;</span><br><span class="line">            for(int i=right;i&gt;=left;i--) &#123;</span><br><span class="line">                res[bottom][i]=(index++);</span><br><span class="line">            &#125;</span><br><span class="line">            bottom--;</span><br><span class="line">            for(int i=bottom;i&gt;=top;i--) &#123;</span><br><span class="line">            	res[i][left]=(index++);</span><br><span class="line">            &#125;</span><br><span class="line">            left++;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="perfect"><a href="#perfect" class="headerlink" title="perfect"></a>perfect</h1><p>no</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/04/06/2019-04-06-LengthofLastWord/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
-      <meta itemprop="name" content="Zhang Zehai">
-      <meta itemprop="description" content="会做饭的厨子">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zehai'blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/06/2019-04-06-LengthofLastWord/" class="post-title-link" itemprop="url">LengthofLastWord</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-04-06 15:50:25 / Modified: 22:43:46" itemprop="dateCreated datePublished" datetime="2019-04-06T15:50:25+08:00">2019-04-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/04/06/2019-04-06-LengthofLastWord/" class="post-meta-item leancloud_visitors" data-flag-title="LengthofLastWord" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2019/04/06/2019-04-06-LengthofLastWord/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/04/06/2019-04-06-LengthofLastWord/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="problem"><a href="#problem" class="headerlink" title="problem"></a>problem</h1><blockquote>
-<p>Given a string <em>s</em> consists of upper/lower-case alphabets and empty space characters <code>&#39; &#39;</code>, return the length of last word in the string.</p>
-<p>If the last word does not exist, return 0.</p>
-<p><strong>Note:</strong> A word is defined as a character sequence consists of non-space characters only.</p>
-<p><strong>Example:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; Input: &quot;Hello World&quot;</span><br><span class="line">&gt; Output: 5</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h1 id="key"><a href="#key" class="headerlink" title="key"></a>key</h1><p>该方法调用了java的String.split(regex)所以在复杂度上回很高，大概仅仅beat了6%的玩家，但解决很快，正确的算法思维就倒序遍历，最后开始查往前，最后一个非空格查到空格结束</p>
-<h1 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//7ms</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLastWord</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(s.length()&lt;=<span class="number">0</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		String[] tmp = s.split(<span class="string">"\\s"</span>);</span><br><span class="line">		<span class="keyword">int</span> lastIndex = tmp.length-<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span>(lastIndex&lt;<span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> tmp[lastIndex].length();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="perfect"><a href="#perfect" class="headerlink" title="perfect"></a>perfect</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int lengthOfLastWord(String s) &#123;</span><br><span class="line">        int n = s.length() - 1;</span><br><span class="line">        int length = 0;</span><br><span class="line">        for(int i = n; i &gt;= 0; i--) &#123;</span><br><span class="line">            if(length == 0) &#123;</span><br><span class="line">                if(s.charAt(i) == &apos; &apos;) &#123;</span><br><span class="line">                    continue;</span><br><span class="line">                &#125;else &#123;</span><br><span class="line">                    length++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                if(s.charAt(i) == &apos; &apos;) &#123;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">                else &#123;</span><br><span class="line">                    length++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return length;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/04/04/2019-04-04-eventLoop/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
-      <meta itemprop="name" content="Zhang Zehai">
-      <meta itemprop="description" content="会做饭的厨子">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zehai'blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/04/2019-04-04-eventLoop/" class="post-title-link" itemprop="url">eventLoop</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-04-04 23:03:46" itemprop="dateCreated datePublished" datetime="2019-04-04T23:03:46+08:00">2019-04-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-04-05 10:53:03" itemprop="dateModified" datetime="2019-04-05T10:53:03+08:00">2019-04-05</time>
-              </span>
-
-          
-            <span id="/2019/04/04/2019-04-04-eventLoop/" class="post-meta-item leancloud_visitors" data-flag-title="eventLoop" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2019/04/04/2019-04-04-eventLoop/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/04/04/2019-04-04-eventLoop/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="what"><a href="#what" class="headerlink" title="what"></a>what</h1><p>Event Loop是一个程序结构，用于等待和发送消息和事件</p>
-<p>a programming construct that waits for and dispatches events or messages in a program.</p>
-<p>简单说，就是在程序中设置两个线程：一个负责程序本身的运行，称为”主线程”；另一个负责主线程与其他进程（主要是各种I/O操作）的通信，被称为”Event Loop线程”（可以译为”消息线程”）。</p>
-<p><img src="..\img\eventloop.png" alt=""></p>
-<p>由上图可以清楚知道Node的<strong>单线程</strong>指的是主线程为单线程</p>
-<h1 id="异步执行"><a href="#异步执行" class="headerlink" title="异步执行"></a>异步执行</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// test.js</span><br><span class="line">setTimeout(() =&gt; console.log(1));</span><br><span class="line">setImmediate(() =&gt; console.log(2));</span><br><span class="line">process.nextTick(() =&gt; console.log(3));//异步最快</span><br><span class="line">Promise.resolve().then(() =&gt; console.log(4));</span><br><span class="line">(() =&gt; console.log(5))();//同步任务最早执行</span><br><span class="line">//53412</span><br></pre></td></tr></table></figure>
-<p>异步分为两种：</p>
-<ul>
-<li>本轮循环：process.nextTick(),Promise</li>
-<li>次轮循环:setTimeout(),setInterval,setImmediate</li>
-</ul>
-<p><img src="..\img\nodeTimer.png" alt=""></p>
-<p>每一次循环中，setTimeout等次轮循环在timers阶段执行，而本轮循环就在check阶段执行，所以会先展示</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://zehai.info/2019/04/04/2019-04-04-春节12响/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/23207152?s=460&v=4">
-      <meta itemprop="name" content="Zhang Zehai">
-      <meta itemprop="description" content="会做饭的厨子">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zehai'blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/04/2019-04-04-春节12响/" class="post-title-link" itemprop="url">春节12响</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-04-04 22:15:52 / Modified: 22:16:42" itemprop="dateCreated datePublished" datetime="2019-04-04T22:15:52+08:00">2019-04-04</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index"><span itemprop="name">life</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/04/04/2019-04-04-春节12响/" class="post-meta-item leancloud_visitors" data-flag-title="春节12响" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2019/04/04/2019-04-04-春节12响/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/04/04/2019-04-04-春节12响/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// File: twelve_biubiu.c</span><br><span class="line">// Permission: CN-2082-2</span><br><span class="line">// Author: Li.YiYi</span><br><span class="line">// Dept: PE-362, UG</span><br><span class="line">// Origin: TI-352132</span><br><span class="line">// 春节十二响 biu biu biu!</span><br><span class="line"></span><br><span class="line">#env &quot;planet_engine&quot;</span><br><span class="line"></span><br><span class="line">int init() &#123;</span><br><span class="line">    set_engine_number_mask(ENGINE_ALL);</span><br><span class="line">    set_funeral_level(FUNERAL_FULL);</span><br><span class="line">    // 允许误差10秒以内</span><br><span class="line">    if (unix_time() &lt; make_unix_time(2082, 1, 28, 23, 59, 60-10)) return ERR_ENGIN_ENV;</span><br><span class="line">    return engine_check_init(); // after compile and before real run</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">    set_curve(CURVE_NATURAL); // 自然曲线耗费燃料最少</span><br><span class="line">    for (int i :range(0, 12, 1)) &#123;</span><br><span class="line">        engine_start();</span><br><span class="line">        wait_engine(ENGINE_STATE_CHAGNE);</span><br><span class="line">        sleep(2000);</span><br><span class="line">        engin_stop();</span><br><span class="line">        wait_engine(ENGINE_STATE_CHAGNE);</span><br><span class="line">        sleep(4000); // 这个时长在模拟器里听起来更像心跳</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line">int final() &#123;</span><br><span class="line">    engine_ensure_shutdown();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1279,20 +1433,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
