@@ -2,7 +2,7 @@
 title: SpiralMatrix2-59
 date: 2019-04-06 16:16:18
 tags:
-- medium
+- Medium
 categories:
 - LeetCode
 ---

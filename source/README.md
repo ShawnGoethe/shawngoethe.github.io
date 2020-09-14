@@ -1,25 +1,14 @@
-|       Ⅰ        |      Ⅱ       |             Ⅲ              |      Ⅳ       |        Ⅴ         |         VI         |            VII             |          VIII          |       IX       |           X           |           XI           |
-| :------------: | :----------: | :------------------------: | :----------: | :--------------: | :----------------: | :------------------------: | :--------------------: | :------------: | :-------------------: | :--------------------: |
-| [HTML](#-html) | [CSS](#-css) | [JavaScript](#-javascript) | [Vue](#-vue) | [React](#-react) | [浏览器](#-浏览器) | [计算机网络](#-计算机网络) | [数据结构](#-数据结构) | [算法](#-算法) | [个人面经](#个人面经) | [工作笔记](#-工作笔记) |
-
-<div align='center'>
-
-  <img src='https://avatars3.githubusercontent.com/u/29560420?s=460&u=ab0c97f0f3fdb03b5e3da8684a923bdd1f2d3193&v=4' width='150' />
-  
-![](https://img.shields.io/badge/Author-PDK-blue.svg)
-![](https://img.shields.io/badge/Category-Interview-red.svg)
-![](https://img.shields.io/badge/license-MIT-yellowgreen.svg)
-![](https://img.shields.io/badge/Vue-2.5-yellowgreen.svg)
-![](https://img.shields.io/badge/React-16.3-green.svg)
-
-</div># Knowledge
-## all in Knowledge
+## 🍎all in Knowledge
 
 - [个人博客](http://zehai.info)
-
 - [LeetCode](http://zehai.info/categories/LeetCode/)
 
-## 专业课
+## Latest
+
+- ✨2020-07-30 上线[phones](https://github.com/ShawnGoethe/phones)，具备基础功能
+- 2020-07-24 [EventLoop Source](https://zehai.info/2020/07/24/2020-07-23-EventLoop2/)阅读文章分析v8基础原理，理解EventLoop
+
+## Major
 
 - [计算机网络](http://zehai.info/cnetwork/)
 - 计算机操作系统
@@ -39,7 +28,7 @@
 
 - [eventLoop模型](<http://zehai.info/Nodejs/#EventLoop>)
 
-## Java基础
+## Java Base
 
 - 集合
   - List
@@ -75,7 +64,7 @@
 - Probability
 - Bitmap
 
-## 计算机网络
+## Network
 
 - [七层模型](http://zehai.info/cnetwork/)
 - [物理层](http://zehai.info/cnetwork/)
@@ -84,30 +73,34 @@
 - [传输层](http://zehai.info/cnetwork/)
 - [应用层](http://zehai.info/cnetwork/)
 
-## Springboot学习之路
+## Links
 
-- xxx
+- [barriery](http://barriery.world/)
+- [豆米](https://blog.5udou.cn/#/blog/list)
+- [Jack-cool](https://github.com/Jack-cool/blog)
 
-## python
-
-- [docs-zh-CN](https://docs.python.org/zh-cn/3.7/tutorial/index.html)
-
-## 托管项目
+## Projects
 
 - [chum](https://github.com/ShawnGoethe/chum)
 - [neews](https://github.com/ShawnGoethe/neews)
+- phones
 
-## 其他
+## Books
+
+（列表丢失，稍后补充）
+
+- 深入浅出Node.js
+- 图解HTTP/IP
+- 图解算法
+- 
+
+## Others
 
 - [春节12响](http://zehai.info/2019/04/04/2019-04-04-%E6%98%A5%E8%8A%8212%E5%93%8D/)
 - [QS2019](http://zehai.info/qs2019/)
 
-# 关于作者
+# About
 
 - 邮箱：zehaizhang@aliyun.com
-- 博客：zehai.info
-- CSDN:https://blog.csdn.net/ShancoFolia
 - want Node.js Job,base Peking
 - 墓志铭：restarting
-
-![](/img/wechatpay.png)
